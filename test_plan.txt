@@ -1,0 +1,20 @@
+Intro Screen
+
+Enter money...
+xlii <not a number>
+4 <too low>
+4.99 <no floats>
+5 <low button available>
+9 <low button avaialble>
+10 <low and medium button available>
+19 <low and medium button available>
+20 <all buttons available>
+50 <all buttons available>
+51 <too high>
+
+Push How to play...
+help appears
+
+Push <dismiss>, help dismissed, how to play button availabe
+Push how to play, help appears, how to play button unavailble
+click cross, help dismissed, how to play button availabe
