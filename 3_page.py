@@ -1,5 +1,6 @@
 from tkinter import *
 from functools import partial   # To prevent unwanted windows
+
 import random
 
 
@@ -17,7 +18,7 @@ class Quiz:
         self.heading_frame.grid(row=0)
 
         # Quiz (row 0)
-        self.Quiz_label = Label(self.heading_frame,text="QUIZ",
+        self.Quiz_label = Label(self.heading_frame,text="GEOGRAPHY QUIZ",
                                 font=("arial 20 bold"),
                                 fg="#757761",bg=background_color)
         self.Quiz_label.grid(row=0)
@@ -28,49 +29,25 @@ class Quiz:
                                 fg="#757761",bg=background_color)
         self.Quiz_instruction_label.grid(row=1)
 
-        self.button_lable_frame = Frame(self.quiz_frame,bg=background_color)
-        self.button_lable_frame.grid(row=1)
 
-        # math_button button (row 0 column 1 )
-        self.math_button = Button(self.button_lable_frame,
-                                  text="Math level 1", font="arial 20 bold", fg="#757761",
-                                  bg="#51BBFE",command=self.math)
-        self.math_button.grid(row=0)
+        self.cho_btn__frame = Frame(self.quiz_frame, width=300, bg=background_color)
+        self.cho_btn__frame.grid(row=1)
 
-        self.math_label = Label(self.button_lable_frame,
-                                text="Math level 1 will give will give you a quiz\n"
-                                     "about addtion and subcration",
-                                font="arial 10 bold", fg="#757761",bg="#F7FE72")
-        self.math_label.grid(row=0,column=1)
+        self.capital_btn = Button(self.cho_btn__frame,text="Country \nto\nCapitals",bg="#51BBFE",
+                                  font="arial 14 bold",command=self.capital)
+        self.capital_btn.grid(row=1,column=1)
 
-        self.geo_button = Button(self.button_lable_frame,
-                                  text="Geography", font="arial 20 bold", fg="#757761",
-                                  bg="#51BBFE",padx=5,command=self.geo)
-        self.geo_button.grid(row=2)
-
-        self.geo_label = Label(self.button_lable_frame,
-                                text="This will give you a test about capital",
-                                font="arial 10 bold", fg="#757761",bg="#F7FE72")
-        self.geo_label.grid(row=2,column=1)
-
-        self.math_three_button = Button(self.button_lable_frame,
-                                  text="Math level 3", font="arial 20 bold", fg="#757761",
-                                  bg="#51BBFE")
-        self.math_three_button.grid(row=3)
-
-        self.math_label = Label(self.button_lable_frame,
-                                text="Math level 3 will give will give you a quiz\n"
-                                     "about i dont what will go here ",
-                                font="arial 10 bold", fg="#757761",bg="#F7FE72")
-        self.math_label.grid(row=3,column=1)
+        self.countries_btn = Button(self.cho_btn__frame,text="Capitals \nto\nCountry ",bg="#51BBFE",
+                                  font="arial 14 bold",command=self.country)
+        self.countries_btn.grid(row=1,column=2)
 
         self.help_frame = Frame(self.quiz_frame)
-        self.help_frame.grid(row=2)
+        self.help_frame.grid(row=3)
 
         # Help Button (row 2)
         self.help_button = Button(self.help_frame,
                                   text="Help", font="arial 20 bold", fg="#757761",
-                                  bg="#51BBFE", command=self.help,)
+                                  bg="#51BBFE", command=self.help)
         self.help_button.grid(row=1)
 
     def help(self):
@@ -78,89 +55,100 @@ class Quiz:
         get_help = Help(self)
         get_help.help_text.configure(text="You have to pick a top and you will be getting tested on in")
 
-    def math(self):
-        math_L1 = Math(self)
-        math_L1.math_text.configure(text="Fill the boxes")
+    def country(self):
+        get_country = Country(self)
+        get_country.country_text.configure(text="Fill in the boxes")
 
-    def geo(self):
-        geo = Geo(self)
-        geo.geo_text.configure(text="Fill the boxes")
+    def capital(self):
+        get_capital = Capital(self)
+        get_capital.capital_text.configure(text="Fill in the boxes")
 
-class Math:
+
+
+class Capital:
     def __init__(self, partner):
         background_color = "#8FF7A7"
 
         # disable button
-        partner.math_button.config(state=DISABLED)
-
-        # Set up math game one
-        self.math_box = Toplevel()
-
-        # Set up GUI Frame
-        self.math_frame = Frame(self.math_box, width=300, bg=background_color)
-        self.math_frame.grid()
-        # Set up math Instruction heading (row 0)
-        self.how_heading = Label(self.math_frame,
-                                 text="Math",
-                                 font="arial 20 bold",bg=background_color)
-        self.how_heading.grid(row=0)
-        # Math text (label, row 1)
-        self.math_text = Label(self.math_frame,
-                               text="Fill the boxes",
-                               justify=LEFT,width=50, bg=background_color,wrap=200)
-        self.math_text.grid(column=0,row=1)
-
-        # Dismiss button (row 2)
-        self.dismiss_btn = Button(self.math_frame,text="Dismiss",width=10,bg="red",
-                                  font="arial 10 bold",
-                                  command=partial(self.close_math, partner))
-        self.dismiss_btn.grid(row=2, pady=10)
-
-    def close_math(self, partner):
-        # Put help button back to normal
-        partner.math_button.config(state=NORMAL)
-        self.math_box.destroy()
-
-class Geo:
-    def __init__(self, partner):
-        background_color = "#8FF7A7"
-
-        # disable button
-        partner.math_button.config(state=DISABLED)
+        partner.capital_btn.config(state=DISABLED)
+        partner.countries_btn.config(state=DISABLED)
+        partner.help_button.config(state=DISABLED)
 
         # Set up Geo game one
-        self.geo_box = Toplevel()
+        self.capital_box = Toplevel()
 
         # Set up GUI Frame
-        self.geo_frame = Frame(self.geo_box, width=300, bg=background_color)
-        self.geo_frame.grid()
+        self.capital_frame = Frame(self.capital_box, width=300, bg=background_color)
+        self.capital_frame.grid()
         # Set up Geo Instruction heading (row 0)
-        self.how_heading = Label(self.geo_frame,
-                                 text="Geo",
+        self.heading = Label(self.capital_frame,
+                                 text="Capital",
                                  font="arial 20 bold",bg=background_color)
-        self.how_heading.grid(row=0)
+        self.heading.grid(row=0)
         # Geo text (label, row 1)
-        self.geo_text = Label(self.geo_frame,
+        self.capital_text = Label(self.capital_frame,
                                text="Fill the boxes",
                                justify=LEFT,width=50, bg=background_color,wrap=200)
-        self.geo_text.grid(column=0,row=1)
+        self.capital_text.grid(column=0,row=1)
 
         # Dismiss button (row 2)
-        self.dismiss_btn = Button(self.geo_frame,text="Dismiss",width=10,bg="red",
+        self.dismiss_btn = Button(self.capital_frame,text="Dismiss",width=10,bg="red",
                                   font="arial 10 bold",
-                                  command=partial(self.close_geo, partner))
+                                  command=partial(self.close_capital, partner))
         self.dismiss_btn.grid(row=2, pady=10)
 
-    def close_geo(self, partner):
+    def close_capital(self, partner):
         # Put help button back to normal
-        partner.math_button.config(state=NORMAL)
-        self.geo_box.destroy()
+        partner.capital_btn.config(state=NORMAL)
+        partner.countries_btn.config(state=NORMAL)
+        partner.help_button.config(state=NORMAL)
+        self.capital_box.destroy()
+class Country:
+    def __init__(self, partner):
+        background_color = "#8FF7A7"
+
+        # disable button
+        partner.capital_btn.config(state=DISABLED)
+        partner.countries_btn.config(state=DISABLED)
+        partner.help_button.config(state=DISABLED)
+
+        # Set up Geo game one
+        self.Country_box = Toplevel()
+
+        # Set up GUI Frame
+        self.Country_frame = Frame(self.Country_box, width=300, bg=background_color)
+        self.Country_frame.grid()
+        # Set up Geo Instruction heading (row 0)
+        self.heading = Label(self.Country_frame,
+                                 text="Country",
+                                 font="arial 20 bold",bg=background_color)
+        self.heading.grid(row=0)
+        # Geo text (label, row 1)
+        self.country_text = Label(self.Country_frame,
+                               text="Fill the boxes",
+                               justify=LEFT,width=50, bg=background_color,wrap=200)
+        self.country_text.grid(column=0,row=1)
+
+        # Dismiss button (row 2)
+        self.dismiss_btn = Button(self.Country_frame,text="Dismiss",width=10,bg="red",
+                                  font="arial 10 bold",
+                                  command=partial(self.close_country, partner))
+        self.dismiss_btn.grid(row=2, pady=10)
+
+    def close_country(self, partner):
+        # Put help button back to normal
+        partner.capital_btn.config(state=NORMAL)
+        partner.countries_btn.config(state=NORMAL)
+        partner.help_button.config(state=NORMAL)
+        self.Country_box.destroy()
 
 class Help:
     def __init__(self, partner):
         background_color = "#8FF7A7"
 
         # disable help button
+        partner.capital_btn.config(state=DISABLED)
+        partner.countries_btn.config(state=DISABLED)
         partner.help_button.config(state=DISABLED)
 
         # Set up child window (ie: help box)
@@ -188,6 +176,8 @@ class Help:
 
     def close_help(self, partner):
         # Put help button back to normal
+        partner.capital_btn.config(state=NORMAL)
+        partner.countries_btn.config(state=NORMAL)
         partner.help_button.config(state=NORMAL)
         self.help_box.destroy()
 

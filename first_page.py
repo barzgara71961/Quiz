@@ -1,4 +1,5 @@
 from tkinter import *
+import csv
 from functools import partial   # To prevent unwanted windows
 
 import random
