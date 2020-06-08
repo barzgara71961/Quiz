@@ -111,9 +111,7 @@ class Country:
         partner.countries_btn.config(state=DISABLED)
         partner.help_button.config(state=DISABLED)
 
-        countries = ["country1", "country2", "country3", "country4", "country5", "country6", "country6", "country8",
-                     "country9", "country10", "country11", "country12", "country13", "country14", "country15",
-                     "country16", ]
+        countries = open("cou_cap.csv")
 
         # Set up Geo game one
         self.Country_box = Toplevel()
