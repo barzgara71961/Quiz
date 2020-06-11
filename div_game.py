@@ -59,7 +59,9 @@ class Quiz:
         self.high_num_entry.grid(row=3,column=1)
 
         self.question_amount_btn = Button(self.choicing_frame,text="Enter",bg=btn_color,
-                                         font="arial 14 bold",command=self.check_question)
+                                         font="arial 14 bold",
+                                          #command=self.check_question
+                                           )
         self.question_amount_btn.grid(row=4,)
 
         self.cho_btn__frame = Frame(self.quiz_frame, width=300, bg=background_color)
@@ -97,10 +99,6 @@ class Quiz:
         self.help_frame = Frame(self.quiz_frame)
         self.help_frame.grid(row=3)
 
-        self.addition_btn.config(state=DISABLED)
-        self.division_btn.config(state=DISABLED)
-        self.multiplication_btn.config(state=DISABLED)
-
         # Help Button (row 2)
         self.help_button = Button(self.help_frame,
                                   text="Help", font="arial 14 bold", fg="black",
@@ -121,84 +119,12 @@ class Quiz:
         get_addition.addition_text.configure(text="Fill in the boxes")
 
     def division(self):
-        get_division = Division(self,question_amount)
+        get_division = Division(self)
         get_division.division_text.configure(text="Fill in the boxes")
-
-    def check_question(self):
-        question_amount = self.cho_num_entry.get()
-
-        # Set error background colour (and assum that there are no
-        # error at the start
-        error_back = "#ffafaf"
-        has_error = "no"
-        error_feedback = ""
-
-        # change background to white (for testing purposes) ...
-        self.cho_num_entry.config(bg="white")
-        self.amount_error_label.config(text="")
-
-        self.addition_btn.config(state=DISABLED)
-        self.division_btn.config(state=DISABLED)
-        self.multiplication_btn.config(state=DISABLED)
-
-    def check_question(self):
-        question_amount = self.cho_num_entry.get()
-        low_number_amount = self.low_num_entry.get()
-
-        # Set error background colour (and assum that there are no
-        # error at the start
-        error_back = "#ffafaf"
-        has_error = "no"
-        error_feedback = ""
-
-        # change background to white (for testing purposes) ...
-        self.cho_num_entry.config(bg="white")
-        self.amount_error_label.config(text="")
-
-        self.addition_btn.config(state=DISABLED)
-        self.division_btn.config(state=DISABLED)
-        self.multiplication_btn.config(state=DISABLED)
-
-        try:
-            question_amount = int(question_amount)
-
-            if question_amount < 0:
-                has_error = "yes"
-                error_feedback = "did you not read the instructions\n" \
-                                 "a minimum of $5 "
-            elif question_amount > 20:
-                has_error = "yes"
-                error_feedback = "unfortunately I can't steal that much money"
-            elif question_amount >= 1:
-                self.addition_btn.config(state=NORMAL)
-                self.division_btn.config(state=NORMAL)
-                self.multiplication_btn.config(state=NORMAL)
-                error_feedback = "sorry you are too cheap"
-
-        except ValueError:
-            has_error = "yes"
-            error_feedback = "Please enter a dollar amount"
-
-        if has_error == "yes":
-            self.cho_num_entry.config(bg=error_back)
-            self.amount_error_label.config(text=error_feedback)
-
-        else:
-            self.question_amount.set(question_amount)
-
-        def to_game(self, stakes):
-            question_amount = self.money_amount_entry.get()
-            print(question_amount)
-
-            Division(self, question_amount)
-
-            # hide start up window
-            root.withdraw()
 
 
 class Division:
-    def __init__(self, partner,question_amount):
-        question_amount = int(question_amount)
+    def __init__(self, partner):
         background_color = "#8FF7A7"
         low_number = 1
         high_number = 10
@@ -222,10 +148,15 @@ class Division:
                                  font="arial 20 bold",bg=background_color)
         self.heading.grid(row=0)
 
-        self.questions_lable = Label(self.division_frame,
+        self.questions_label = Label(self.division_frame,
                                 text=random.choice(number_enter),
                                 font="arial 10 bold", fg="green",bg="#F7FE72")
-        self.questions_lable.grid(row=3,column=1)
+        self.questions_label.grid(row=1)
+
+        self.questions_label = Label(self.division_frame,
+                                text=random.choice(number_enter),
+                                font="arial 10 bold", fg="black",bg="#F7FE72")
+        self.questions_label.grid(row=1,column=2)
 
 
 
@@ -234,7 +165,7 @@ class Division:
         self.division_text = Label(self.division_frame,
                                text="Fill the boxes",
                                justify=LEFT,width=50, bg=background_color,wrap=200)
-        self.division_text.grid(column=0,row=1)
+        self.division_text.grid(row=2)
 
         # Dismiss button (row 2)
         self.dismiss_btn = Button(self.division_frame,text="Dismiss",width=10,bg="red",

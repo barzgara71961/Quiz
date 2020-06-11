@@ -38,8 +38,7 @@ class Quiz:
         self.math_button.grid(row=0)
 
         self.math_label = Label(self.button_lable_frame,
-                                text="Math level 1 will give will give you a quiz\n"
-                                     "about addtion and subcration",
+                                text="",
                                 font="arial 10 bold", fg="#757761",bg="#F7FE72")
         self.math_label.grid(row=0,column=1)
 
