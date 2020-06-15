@@ -127,6 +127,7 @@ class Quiz:
         get_division = Division(self,)
         get_division.division_text.configure(text="Fill in the boxes")
 
+
     def check_question(self):
         starting_questoin = self.cho_num_entry.get()
 
@@ -150,7 +151,6 @@ class Quiz:
 
     def check_question(self):
         starting_questoin = self.cho_num_entry.get()
-        low_number_amount = self.low_num_entry.get()
 
         # Set error background colour (and assum that there are no
         # error at the start
@@ -196,10 +196,11 @@ class Quiz:
         starting_questoin = self.cho_num_entry.get()
         print(starting_questoin)
 
-        Division(self, starting_questoin)
+        Division(self, starting_questoin,)
 
         # hide start up window
         root.withdraw()
+
 
 
 class Division:
@@ -230,11 +231,8 @@ class Division:
 
         self.questions_lable = Label(self.division_frame,
                                 text=starting_questoin,
-                                font="arial 10 bold", fg="green",bg="#F7FE72")
+                                font="arial 10 bold", fg="black",bg=background_color)
         self.questions_lable.grid(row=1)
-
-
-
 
         # Geo text (label, row 1)
         self.division_text = Label(self.division_frame,
@@ -255,6 +253,8 @@ class Division:
         partner.multiplication_btn.config(state=NORMAL)
         partner.help_button.config(state=NORMAL)
         self.division_box.destroy()
+
+
 class Addition:
     def __init__(self, partner):
         background_color = "#8FF7A7"

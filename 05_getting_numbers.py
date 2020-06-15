@@ -14,6 +14,12 @@ class Quiz:
         self.quiz_frame = Frame(width=500, height=500,bg=background_color)
         self.quiz_frame.grid()
 
+        self.starting_questoin = IntVar()
+        self.starting_questoin.set(0)
+
+        self.low_amount = IntVar()
+        self.low_amount.set(0)
+
         self.high_amount = IntVar()
         self.high_amount.set(0)
 
@@ -48,9 +54,9 @@ class Quiz:
                                    fg=font_color,bg=background_color)
         self.low_num_label.grid(row=2)
 
-        self.high_num_entry = Entry(self.choicing_frame,
+        self.low_num_entry = Entry(self.choicing_frame,
                                    font="arial 10 bold", width=5)
-        self.high_num_entry.grid(row=2,column=1)
+        self.low_num_entry.grid(row=2,column=1)
 
         self.high_num_label = Label(self.choicing_frame,text="high number amout",
                                    font="arial 10 bold",
@@ -128,6 +134,8 @@ class Quiz:
         get_division.division_text.configure(text="Fill in the boxes")
 
     def check_question(self):
+        starting_questoin = self.cho_num_entry.get()
+        low_amount = self.low_num_entry.get()
         high_amount = self.high_num_entry.get()
 
         # Set error background colour (and assum that there are no
@@ -137,12 +145,49 @@ class Quiz:
         error_feedback = ""
 
         # change background to white (for testing purposes) ...
+        self.cho_num_entry.config(bg="white")
+        self.amount_error_label.config(text="")
+        self.low_num_entry.config(bg="white")
+        self.low_num_entry.config(text="")
         self.high_num_entry.config(bg="white")
         self.high_num_entry.config(text="")
+
 
         self.addition_btn.config(state=DISABLED)
         self.division_btn.config(state=DISABLED)
         self.multiplication_btn.config(state=DISABLED)
+
+        try:
+            starting_questoin = int(starting_questoin)
+
+            if starting_questoin < 0:
+                has_error = "yes"
+                error_feedback = "You need to enter a number"
+            elif starting_questoin > 20:
+                has_error = "yes"
+                error_feedback = "unfortunately thats to high"
+            elif starting_questoin >= 1:
+                error_feedback = "sorry you need a number a bit bigger"
+
+        except ValueError:
+            has_error = "yes"
+            error_feedback = "Please fill the boxes with whole numbers"
+
+        try:
+            low_amount = int(low_amount)
+
+            if low_amount < -10000:
+                has_error = "yes"
+                error_feedback = "this number is to low"
+            elif low_amount > 9999999999:
+                has_error = "yes"
+                error_feedback = "unfortunately thats to high"
+            elif low_amount >= 1:
+                error_feedback = "sorry you need a number a bit bigger"
+
+        except ValueError:
+            has_error = "yes"
+            error_feedback = "Please fill the boxes with whole numbers"
 
         try:
             high_amount = int(high_amount)
@@ -164,29 +209,58 @@ class Quiz:
             error_feedback = "Please fill the boxes with whole numbers"
 
         if has_error == "yes":
+            self.cho_num_entry.config(bg=error_back)
+            # self.amount_error_label.config(text=error_feedback)
             self.high_num_entry.config(bg=error_back)
-            self.high_num_entry.config(text=error_feedback)
+            # self.high_num_entry.config(text=error_feedback)
+            self.low_num_entry.config(bg=error_back)
+            # self.low_num_entry.config(text=error_feedback)
 
         else:
+            self.starting_questoin.set(starting_questoin)
+            self.low_amount.set(low_amount)
             self.high_amount.set(high_amount)
 
     def division(self):
+        starting_questoin = self.cho_num_entry.get()
+        low_amount = self.low_num_entry.get()
         high_amount = self.high_num_entry.get()
-        print(high_amount)
+        print(starting_questoin,low_amount,high_amount)
 
-        Division(self, high_amount,)
+        Division(self, starting_questoin,low_amount,high_amount)
+
+        # hide start up window
+        root.withdraw()
+
+    def addition(self):
+        starting_questoin = self.cho_num_entry.get()
+        low_amount = self.low_num_entry.get()
+        high_amount = self.high_num_entry.get()
+        print(starting_questoin, low_amount, high_amount)
+
+        Addition(self, starting_questoin, low_amount, high_amount)
+
+        # hide start up window
+        root.withdraw()
+
+    def multiplication(self):
+        starting_questoin = self.cho_num_entry.get()
+        low_amount = self.low_num_entry.get()
+        high_amount = self.high_num_entry.get()
+        print(starting_questoin, low_amount, high_amount)
+
+        Multiplication(self, starting_questoin, low_amount, high_amount)
 
         # hide start up window
         root.withdraw()
 
 
-
 class Division:
-    def __init__(self, partner,high_amount):
+    def __init__(self, partner,starting_questoin,low_amount,high_amount):
+        starting_questoin = int(starting_questoin)
+        low_amount = int(low_amount)
         high_amount = int(high_amount)
         background_color = "#8FF7A7"
-        high_number = 10
-        number_enter = [high_amount,high_number]
 
         # disable button
         partner.addition_btn.config(state=DISABLED)
@@ -206,22 +280,41 @@ class Division:
                                  font="arial 20 bold",bg=background_color)
         self.heading.grid(row=0)
 
-        self.questions_lable = Label(self.division_frame,
-                                text=high_amount,
+        self.ask_questions_frame = Frame (self.division_frame,bg=background_color)
+        self.ask_questions_frame.grid(row=1)
+
+        self.questions_lable = Label(self.ask_questions_frame,
+                                text=starting_questoin,
                                 font="arial 10 bold", fg="black",bg=background_color)
         self.questions_lable.grid(row=1)
 
+        self.low_lable = Label(self.ask_questions_frame,
+                                text=low_amount,
+                                font="arial 10 bold", fg="black",bg=background_color)
+        self.low_lable.grid(row=1,column=1)
+
+        self.high_lable = Label(self.ask_questions_frame,
+                                text=high_amount,
+                                font="arial 10 bold", fg="black",bg=background_color)
+        self.high_lable.grid(row=1,column=2)
+
+        self.entery_frame = Frame (self.division_frame,bg=background_color)
+        self.entery_frame.grid(row=2)
+
         # Geo text (label, row 1)
-        self.division_text = Label(self.division_frame,
+        self.division_text = Label(self.entery_frame,
                                text="Fill the boxes",
                                justify=LEFT,width=50, bg=background_color,wrap=200)
-        self.division_text.grid(row=2)
+        self.division_text.grid(row=1)
+
+        self.help_dissmis_frame = Frame (self.division_frame,bg=background_color)
+        self.help_dissmis_frame.grid(row=3)
 
         # Dismiss button (row 2)
-        self.dismiss_btn = Button(self.division_frame,text="Dismiss",width=10,bg="red",
+        self.dismiss_btn = Button(self.help_dissmis_frame,text="Dismiss",width=10,bg="red",
                                   font="arial 10 bold",
                                   command=partial(self.close_division, partner))
-        self.dismiss_btn.grid(row=3)
+        self.dismiss_btn.grid(row=1)
 
     def close_division(self, partner):
         # Put help button back to normal
@@ -230,9 +323,11 @@ class Division:
         partner.multiplication_btn.config(state=NORMAL)
         partner.help_button.config(state=NORMAL)
         self.division_box.destroy()
-
 class Addition:
-    def __init__(self, partner):
+    def __init__(self, partner,starting_questoin,low_amount,high_amount):
+        starting_questoin = int(starting_questoin)
+        low_amount = int(low_amount)
+        high_amount = int(high_amount)
         background_color = "#8FF7A7"
 
         # disable button
@@ -272,7 +367,10 @@ class Addition:
         partner.help_button.config(state=NORMAL)
         self.addition_box.destroy()
 class Multiplication:
-    def __init__(self, partner):
+    def __init__(self, partner,starting_questoin,low_amount,high_amount):
+        starting_questoin = int(starting_questoin)
+        low_amount = int(low_amount)
+        high_amount = int(high_amount)
         background_color = "#8FF7A7"
 
         # disable button

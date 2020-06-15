@@ -19,48 +19,32 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="game_v4_export.py" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v4_export.py">
+            <file leaf-file-name="04_page.py" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/04_page.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-716">
-                    <caret line="112" column="28" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="28" />
+                  <state relative-caret-position="608">
+                    <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
                     <folding>
-                      <element signature="e#7602#8958#0" expanded="false" />
-                      <element signature="e#17180#18592#0" expanded="false" />
-                      <element signature="e#18615#23592#0" expanded="false" />
-                      <element signature="e#23612#28846#0" expanded="false" />
+                      <element signature="e#0#21#0" expanded="true" />
+                      <element signature="e#7954#10028#0" expanded="false" />
+                      <element signature="e#10051#11735#0" expanded="false" />
+                      <element signature="e#11762#13524#0" expanded="false" />
+                      <element signature="e#13541#15233#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="number_generation.py" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/number_generation.py">
+            <file leaf-file-name="05_getting_numbers.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/05_getting_numbers.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="289">
-                    <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="number_checker.py" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/number_checker.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="0">
-                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="working_number_checker.py" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/working_number_checker.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="0">
-                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <state relative-caret-position="543">
+                    <caret line="303" column="33" selection-start-line="303" selection-start-column="33" selection-end-line="303" selection-end-column="33" />
                     <folding>
                       <element signature="e#0#21#0" expanded="true" />
+                      <element signature="e#12890#14742#0" expanded="false" />
+                      <element signature="e#14769#16699#0" expanded="false" />
+                      <element signature="e#16716#18408#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
@@ -87,22 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="04_page.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/04_page.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="quiz_with_buttons.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quiz_with_buttons.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="595">
               <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -124,8 +96,23 @@
       <file leaf-file-name="00_sandpit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/00_sandpit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+            <state relative-caret-position="-1887">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#9203#10887#0" expanded="false" />
+                <element signature="e#10914#12676#0" expanded="false" />
+                <element signature="e#12693#14385#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_v5_export.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="302" column="55" selection-start-line="302" selection-start-column="55" selection-end-line="302" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -134,7 +121,7 @@
       <file leaf-file-name="div_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/div_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1915">
+            <state relative-caret-position="2176">
               <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding>
                 <element signature="e#7604#9288#0" expanded="false" />
@@ -166,10 +153,11 @@
         <option value="$PROJECT_DIR$/number_game.py" />
         <option value="$PROJECT_DIR$/random_country.py" />
         <option value="$PROJECT_DIR$/country_game.py" />
-        <option value="$PROJECT_DIR$/00_sandpit.py" />
         <option value="$PROJECT_DIR$/quiz_with_buttons.py" />
         <option value="$PROJECT_DIR$/div_game.py" />
         <option value="$PROJECT_DIR$/04_page.py" />
+        <option value="$PROJECT_DIR$/00_sandpit.py" />
+        <option value="$PROJECT_DIR$/05_getting_numbers.py" />
       </list>
     </option>
   </component>
@@ -205,11 +193,11 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/00_sandpit.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.04_page">
+  <component name="RunManager" selected="Python.05_getting_numbers">
     <configuration default="false" name="04_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -227,57 +215,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="game_v4_export" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Quiz" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v4_export.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="quiz_with_buttons" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Quiz" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/quiz_with_buttons.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="div_game" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Quiz" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/div_game.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="3_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -291,6 +228,57 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Quiz" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3_page.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="00_sandpit" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Quiz" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/00_sandpit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="05_getting_numbers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Quiz" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/05_getting_numbers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="game_v5_export" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Quiz" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -431,18 +419,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.04_page" />
-      <item index="1" class="java.lang.String" itemvalue="Python.game_v4_export" />
-      <item index="2" class="java.lang.String" itemvalue="Python.quiz_with_buttons" />
-      <item index="3" class="java.lang.String" itemvalue="Python.div_game" />
-      <item index="4" class="java.lang.String" itemvalue="Python.3_page" />
+      <item index="1" class="java.lang.String" itemvalue="Python.3_page" />
+      <item index="2" class="java.lang.String" itemvalue="Python.00_sandpit" />
+      <item index="3" class="java.lang.String" itemvalue="Python.05_getting_numbers" />
+      <item index="4" class="java.lang.String" itemvalue="Python.game_v5_export" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.04_page" />
-        <item index="1" class="java.lang.String" itemvalue="Python.3_page" />
-        <item index="2" class="java.lang.String" itemvalue="Python.quiz_with_buttons" />
-        <item index="3" class="java.lang.String" itemvalue="Python.div_game" />
-        <item index="4" class="java.lang.String" itemvalue="Python.game_v4_export" />
+        <item index="0" class="java.lang.String" itemvalue="Python.05_getting_numbers" />
+        <item index="1" class="java.lang.String" itemvalue="Python.game_v5_export" />
+        <item index="2" class="java.lang.String" itemvalue="Python.00_sandpit" />
+        <item index="3" class="java.lang.String" itemvalue="Python.04_page" />
+        <item index="4" class="java.lang.String" itemvalue="Python.3_page" />
       </list>
     </recent_temporary>
   </component>
@@ -460,7 +448,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="1" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -468,7 +456,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18356457" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18356457" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -514,11 +502,129 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/3_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quiz_with_buttons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_country.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/00_sandpit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#9203#10887#0" expanded="false" />
+            <element signature="e#10914#12676#0" expanded="false" />
+            <element signature="e#12693#14385#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="60" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#7954#10028#0" expanded="false" />
+            <element signature="e#10051#11735#0" expanded="false" />
+            <element signature="e#11762#13524#0" expanded="false" />
+            <element signature="e#13541#15233#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/div_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding>
+            <element signature="e#7604#9288#0" expanded="false" />
+            <element signature="e#9315#11077#0" expanded="false" />
+            <element signature="e#11094#12786#0" expanded="false" />
+            <element signature="e#12832#12909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quiz_with_buttons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_country.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/00_sandpit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#9203#10887#0" expanded="false" />
+            <element signature="e#10914#12676#0" expanded="false" />
+            <element signature="e#12693#14385#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/div_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding>
+            <element signature="e#7604#9288#0" expanded="false" />
+            <element signature="e#9315#11077#0" expanded="false" />
+            <element signature="e#11094#12786#0" expanded="false" />
+            <element signature="e#12832#12909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/3_page.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -541,12 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#7602#8958#0" expanded="false" />
-            <element signature="e#17180#18592#0" expanded="false" />
-            <element signature="e#18615#23592#0" expanded="false" />
-            <element signature="e#23612#28846#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -554,7 +654,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#9203#10887#0" expanded="false" />
+            <element signature="e#10914#12676#0" expanded="false" />
+            <element signature="e#12693#14385#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -562,11 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#126#2451#0" expanded="false" />
-            <element signature="e#6288#7874#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -585,7 +685,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/div_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1915">
+        <state relative-caret-position="2176">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding>
             <element signature="e#7604#9288#0" expanded="false" />
@@ -600,19 +700,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="657">
           <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#126#2451#0" expanded="false" />
-            <element signature="e#6288#7874#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/00_sandpit.py">
+    <entry file="file://C:/Program Files/Python35/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="245">
+          <caret line="1549" column="0" selection-start-line="1549" selection-start-column="0" selection-end-line="1549" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v4_export.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="112" column="28" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/number_generation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/number_checker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/working_number_checker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -626,10 +748,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/quiz_with_buttons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="595">
           <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#7954#10028#0" expanded="false" />
+            <element signature="e#10051#11735#0" expanded="false" />
+            <element signature="e#11762#13524#0" expanded="false" />
+            <element signature="e#13541#15233#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -642,51 +778,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v4_export.py">
+    <entry file="file://$PROJECT_DIR$/00_sandpit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-716">
-          <caret line="112" column="28" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="28" />
+        <state relative-caret-position="-1887">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#7602#8958#0" expanded="false" />
-            <element signature="e#17180#18592#0" expanded="false" />
-            <element signature="e#18615#23592#0" expanded="false" />
-            <element signature="e#23612#28846#0" expanded="false" />
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#9203#10887#0" expanded="false" />
+            <element signature="e#10914#12676#0" expanded="false" />
+            <element signature="e#12693#14385#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/working_number_checker.py">
+    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/number_checker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="338">
+          <caret line="302" column="55" selection-start-line="302" selection-start-column="55" selection-end-line="302" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/number_generation.py">
+    <entry file="file://$PROJECT_DIR$/05_getting_numbers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="543">
+          <caret line="303" column="33" selection-start-line="303" selection-start-column="33" selection-end-line="303" selection-end-column="33" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#12890#14742#0" expanded="false" />
+            <element signature="e#14769#16699#0" expanded="false" />
+            <element signature="e#16716#18408#0" expanded="false" />
           </folding>
         </state>
       </provider>
