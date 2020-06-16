@@ -325,7 +325,7 @@ class Addition:
         background_color = "#8FF7A7"
         hi_lo_num = random.randrange(low_amount,high_amount)
         hi_lo_num2 = random.randrange(low_amount, high_amount)
-        answer_1 = (hi_lo_num + hi_lo_num2)
+        correct = hi_lo_num + hi_lo_num2
 
 
         # disable button
@@ -362,10 +362,13 @@ class Addition:
         self.checking_ans_btn = Entry (self.ask_questions_frame,font="arial 15 bold")
         self.checking_ans_btn.grid(row=2)
 
-        self.add_funds_button = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
+        self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                        bg="#95E06C", pady=7,
-                                       command=self.check_ans)
-        self.add_funds_button.grid(row=2, column=1)
+                                       command=self.check_ans(correct))
+        self.check_ans_btn.grid(row=2, column=1)
+
+        self.correct_ans = Label(self.ask_questions_frame,correct )
+        self.check_ans_btn.grid(row=2, column=2)
 
         # Dismiss button (row 2)
         self.dismiss_btn = Button(self.ask_questions_frame,text="Dismiss",width=10,bg="red",
@@ -374,7 +377,7 @@ class Addition:
         self.dismiss_btn.grid(row=3)
 
 
-    def check_ans(self):
+    def check_ans(self, partner):
         answer = self.checking_ans_btn.get()
 
         # Set error background colour (and assum that there are no
@@ -384,13 +387,13 @@ class Addition:
         error_feedback = ""
 
         # change background to white (for testing purposes) ...
-        self.add_funds_button.config(bg="white")
-        self.add_funds_button.config(text="")
+        self.check_ans_btn.config(bg="white")
+        self.check_ans_btn.config(text="")
 
 
         try:
             answer = int(answer)
-            answer_1 = int
+            answer_1 = int()
 
             if answer == answer_1:
                 has_error = "no"
@@ -404,8 +407,8 @@ class Addition:
             error_feedback = "Please fill the boxes with whole numbers"
 
         if has_error == "yes":
-            self.add_funds_button.config(bg=error_back)
-            self.add_funds_button.config(text=error_feedback)
+            self.check_ans_btn.config(bg=error_back)
+            self.check_ans_btn.config(text=error_feedback)
 
     def close_addition(self, partner):
         # Put help button back to normal

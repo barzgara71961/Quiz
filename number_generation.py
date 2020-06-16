@@ -1,11 +1,11 @@
 import random
 
 low = 1
-high = 12
+high = 10
 
 for item in range(1):
-    num_1 = random.randrange(low, high)
-    num_2 = random.randrange(low, high)
+    hi_to_num = random.randrange(low, high)
+    hi_to_num2 = random.randrange(low, high)
 
-    question = "{} x {}".format(num_1, num_2)
+    question = "{} x {}".format(hi_to_num, hi_to_num2)
     print(question)
