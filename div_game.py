@@ -159,7 +159,7 @@ class Quiz:
         try:
             starting_questoin = int(starting_questoin)
 
-            if starting_questoin < 0:
+            if starting_questoin < 1:
                 has_error = "yes"
                 error_feedback = "You need to enter a number"
             elif starting_questoin > 20:
@@ -209,7 +209,7 @@ class Quiz:
 
         if has_error == "yes":
             self.cho_num_entry.config(bg=error_back)
-            # self.amount_error_label.config(text=error_feedback)
+            self.amount_error_label.config(text=error_feedback)
             self.high_num_entry.config(bg=error_back)
             # self.high_num_entry.config(text=error_feedback)
             self.low_num_entry.config(bg=error_back)
@@ -238,9 +238,6 @@ class Quiz:
         print(starting_questoin, low_amount, high_amount)
 
         Addition(self, starting_questoin, low_amount, high_amount)
-
-        # hide start up window
-        root.withdraw()
 
     def multiplication(self):
         starting_questoin = self.cho_num_entry.get()
@@ -326,7 +323,7 @@ class Addition:
         hi_lo_num = random.randrange(low_amount,high_amount)
         hi_lo_num2 = random.randrange(low_amount, high_amount)
         correct = hi_lo_num + hi_lo_num2
-
+        print(correct)
 
         # disable button
         partner.addition_btn.config(state=DISABLED)
@@ -341,9 +338,8 @@ class Addition:
         self.addition_frame = Frame(self.addition_box, width=300, bg=background_color)
         self.addition_frame.grid()
         # Set up Geo Instruction heading (row 0)
-        self.heading = Label(self.addition_frame,
-                                 text="Addition",
-                                 font="arial 20 bold",bg=background_color)
+        self.heading = Label(self.addition_frame,text="Addition",
+                             font="arial 20 bold",bg=background_color)
         self.heading.grid(row=0)
         # Geo text (label, row 1)
         self.addition_text = Label(self.addition_frame,
@@ -351,7 +347,7 @@ class Addition:
                                justify=LEFT,width=50, bg=background_color,wrap=200)
         self.addition_text.grid(row=1)
 
-        self.ask_questions_frame = Frame (self.addition_frame,bg=background_color)
+        self.ask_questions_frame = Frame(self.addition_frame,bg=background_color)
         self.ask_questions_frame.grid(row=1)
 
         self.get1_lable = Label(self.ask_questions_frame,
@@ -359,16 +355,13 @@ class Addition:
                                 font="arial 10 bold", fg="black",bg=background_color)
         self.get1_lable.grid(row=1)
 
-        self.checking_ans_btn = Entry (self.ask_questions_frame,font="arial 15 bold")
+        self.checking_ans_btn = Entry(self.ask_questions_frame,font="arial 15 bold")
         self.checking_ans_btn.grid(row=2)
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
-                                       bg="#95E06C", pady=7,
-                                       command=self.check_ans(correct))
+                                    bg="#95E06C", pady=7,
+                                    command=lambda: self.check_ans(correct))
         self.check_ans_btn.grid(row=2, column=1)
-
-        self.correct_ans = Label(self.ask_questions_frame,correct )
-        self.check_ans_btn.grid(row=2, column=2)
 
         # Dismiss button (row 2)
         self.dismiss_btn = Button(self.ask_questions_frame,text="Dismiss",width=10,bg="red",
@@ -377,7 +370,7 @@ class Addition:
         self.dismiss_btn.grid(row=3)
 
 
-    def check_ans(self, partner):
+    def check_ans(self,correct):
         answer = self.checking_ans_btn.get()
 
         # Set error background colour (and assum that there are no
@@ -390,17 +383,16 @@ class Addition:
         self.check_ans_btn.config(bg="white")
         self.check_ans_btn.config(text="")
 
-
         try:
             answer = int(answer)
-            answer_1 = int()
+            correct = int(correct)
 
-            if answer == answer_1:
-                has_error = "no"
-                error_feedback = "this number is to low"
-            elif answer != answer_1:
+            if answer != correct:
                 has_error = "yes"
-                error_feedback = "unfortunately thats to high"
+                error_feedback = "this number is to low"
+            elif answer == correct:
+                has_error = "no"
+
 
         except ValueError:
             has_error = "yes"
@@ -409,6 +401,13 @@ class Addition:
         if has_error == "yes":
             self.check_ans_btn.config(bg=error_back)
             self.check_ans_btn.config(text=error_feedback)
+
+        else:
+            self.get1_lable = Label(self.ask_questions_frame,
+                                    text="{} + {}".format(hi_lo_num, hi_lo_num2),
+                                    font="arial 10 bold", fg="black", bg="blue")
+            self.get1_lable.grid(row=1)
+
 
     def close_addition(self, partner):
         # Put help button back to normal
