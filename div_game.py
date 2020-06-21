@@ -322,6 +322,7 @@ class Addition:
         background_color = "#8FF7A7"
         hi_lo_num = random.randrange(low_amount,high_amount)
         hi_lo_num2 = random.randrange(low_amount, high_amount)
+        questoins ="{} + {}".format(hi_lo_num, hi_lo_num2)
         correct = hi_lo_num + hi_lo_num2
         print(correct)
 
@@ -351,7 +352,7 @@ class Addition:
         self.ask_questions_frame.grid(row=1)
 
         self.get1_lable = Label(self.ask_questions_frame,
-                                text="{} + {}".format(hi_lo_num, hi_lo_num2),
+                                text=questoins,
                                 font="arial 10 bold", fg="black",bg=background_color)
         self.get1_lable.grid(row=1)
 
@@ -360,7 +361,7 @@ class Addition:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(correct))
+                                    command=lambda: self.check_ans(correct,questoins))
         self.check_ans_btn.grid(row=2, column=1)
 
         # Dismiss button (row 2)
@@ -369,11 +370,10 @@ class Addition:
                                   command=partial(self.close_addition, partner))
         self.dismiss_btn.grid(row=3)
 
-
-    def check_ans(self,correct):
+    def check_ans(self,correct,questoins):
         answer = self.checking_ans_btn.get()
 
-        # Set error background colour (and assum that there are no
+        # Set error background colour (and assum that there are no)
         # error at the start
         error_back = "#ffafaf"
         has_error = "no"
@@ -389,25 +389,27 @@ class Addition:
 
             if answer != correct:
                 has_error = "yes"
-                error_feedback = "this number is to low"
+                error_feedback = "incorrect"
             elif answer == correct:
                 has_error = "no"
+                self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold",
+                                            fg="black",
+                                            bg="#95E06C", pady=7,
+                                            command=lambda: self.check_ans(correct))
+                self.check_ans_btn.grid(row=2, column=1)
 
+                self.get1_lable = Label(self.ask_questions_frame,
+                                        text=questoins,
+                                        font="arial 10 bold", fg="black", bg="yellow")
+                self.get1_lable.grid(row=1)
 
         except ValueError:
             has_error = "yes"
-            error_feedback = "Please fill the boxes with whole numbers"
+            error_feedback = "Please fill the boxes"
 
         if has_error == "yes":
             self.check_ans_btn.config(bg=error_back)
             self.check_ans_btn.config(text=error_feedback)
-
-        else:
-            self.get1_lable = Label(self.ask_questions_frame,
-                                    text="{} + {}".format(hi_lo_num, hi_lo_num2),
-                                    font="arial 10 bold", fg="black", bg="blue")
-            self.get1_lable.grid(row=1)
-
 
     def close_addition(self, partner):
         # Put help button back to normal
