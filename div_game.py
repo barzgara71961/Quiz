@@ -191,7 +191,7 @@ class Quiz:
         try:
             high_amount = int(high_amount)
 
-            if high_amount < -10000:
+            if high_amount < -1000000:
                 has_error = "yes"
                 error_feedback = "this number is to low"
             elif high_amount > 9999999999:
@@ -228,9 +228,6 @@ class Quiz:
 
         Division(self, starting_questoin,low_amount,high_amount)
 
-        # hide start up window
-        root.withdraw()
-
     def addition(self):
         starting_questoin = self.cho_num_entry.get()
         low_amount = self.low_num_entry.get()
@@ -246,9 +243,6 @@ class Quiz:
         print(starting_questoin, low_amount, high_amount)
 
         Multiplication(self, starting_questoin, low_amount, high_amount)
-
-        # hide start up window
-        root.withdraw()
 
 class Division:
     def __init__(self, partner,starting_questoin,low_amount,high_amount):
@@ -361,7 +355,7 @@ class Addition:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(correct,questoins))
+                                    command=lambda: self.check_ans(correct))
         self.check_ans_btn.grid(row=2, column=1)
 
         # Dismiss button (row 2)
@@ -370,8 +364,10 @@ class Addition:
                                   command=partial(self.close_addition, partner))
         self.dismiss_btn.grid(row=3)
 
-    def check_ans(self,correct,questoins):
+    def check_ans(self,correct,):
         answer = self.checking_ans_btn.get()
+        answer = int(answer)
+        correct = int(correct)
 
         # Set error background colour (and assum that there are no)
         # error at the start
@@ -383,29 +379,14 @@ class Addition:
         self.check_ans_btn.config(bg="white")
         self.check_ans_btn.config(text="")
 
-        try:
-            answer = int(answer)
-            correct = int(correct)
-
-            if answer != correct:
-                has_error = "yes"
-                error_feedback = "incorrect"
-            elif answer == correct:
-                has_error = "no"
-                self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold",
-                                            fg="black",
-                                            bg="#95E06C", pady=7,
-                                            command=lambda: self.check_ans(correct))
-                self.check_ans_btn.grid(row=2, column=1)
-
-                self.get1_lable = Label(self.ask_questions_frame,
-                                        text=questoins,
-                                        font="arial 10 bold", fg="black", bg="yellow")
-                self.get1_lable.grid(row=1)
-
-        except ValueError:
+        if answer != correct:
             has_error = "yes"
-            error_feedback = "Please fill the boxes"
+            error_feedback = "incorrect"
+        elif answer == correct:
+            has_error = "no"
+            self.next_btn = Button(self.ask_questions_frame, text="next", font="arial 10 bold", fg="black",
+                                   bg="#95E06C", pady=7,command=lambda: self.check_ans)
+        self.next_btn.grid(row=2, column=1)
 
         if has_error == "yes":
             self.check_ans_btn.config(bg=error_back)
