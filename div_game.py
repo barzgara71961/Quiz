@@ -175,7 +175,7 @@ class Quiz:
         try:
             low_amount = int(low_amount)
 
-            if low_amount < -10000:
+            if low_amount < -1000000:
                 has_error = "yes"
                 error_feedback = "this number is to low"
             elif low_amount > 9999999999:
@@ -384,9 +384,6 @@ class Addition:
             error_feedback = "incorrect"
         elif answer == correct:
             has_error = "no"
-            self.next_btn = Button(self.ask_questions_frame, text="next", font="arial 10 bold", fg="black",
-                                   bg="#95E06C", pady=7,command=lambda: self.check_ans)
-        self.next_btn.grid(row=2, column=1)
 
         if has_error == "yes":
             self.check_ans_btn.config(bg=error_back)
