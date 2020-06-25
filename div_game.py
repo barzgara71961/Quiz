@@ -159,14 +159,14 @@ class Quiz:
         try:
             starting_question = int(starting_question)
 
-            if starting_question < 1:
+            if starting_question <5:
                 has_error = "yes"
                 error_feedback = "You need to enter a number"
             elif starting_question > 20:
                 has_error = "yes"
-                error_feedback = "unfortunately thats to high"
-            elif starting_question >= 1:
-                error_feedback = "sorry you need a number a bit bigger"
+                error_feedback = "unfortunately that's to high"
+            elif starting_question >=5:
+                error_feedback = "You need a minimum of 5 questions "
 
         except ValueError:
             has_error = "yes"
@@ -364,7 +364,7 @@ class Addition:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(correct))
+                                    command=lambda: self.check_ans(correct,questions))
         self.check_ans_btn.grid(row=2, column=1)
 
         # Dismiss button (row 2)
@@ -373,7 +373,54 @@ class Addition:
                                   command=partial(self.close_addition, partner))
         self.dismiss_btn.grid(row=3)
 
-    def check_ans(self, correct):
+    def check_ans(self, correct,questions):
+        answer = self.checking_ans_btn.get()
+
+        # Set error background colour (and assum that there are no)
+        # error at the start
+        error_back = "#ffafaf"
+        has_error = "no"
+        error_feedback = ""
+
+        # change background to white (for testing purposes) ...
+        self.check_ans_btn.config(bg="white")
+        self.check_ans_btn.config(text="")
+
+        try:
+            answer = int(answer)
+            correct = int(correct)
+
+            if answer != correct:
+                has_error = "yes"
+                self.wrong_label = Label(self.ask_questions_frame, text="opps wrong answer",
+                                         font="arial 10 bold",fg="black",bg="#95E06C", pady=7,)
+                self.wrong_label.grid(row=3)
+            elif answer == correct:
+                has_error = "no"
+                self.right_label = Label(self.ask_questions_frame, text=" that's the right answer",
+                                         font="arial 10 bold", fg="black", bg="#95E06C", pady=7, )
+                self.right_label.grid(row=3)
+
+        except ValueError:
+            has_error = "yes"
+            error_feedback = "Please fill the boxes"
+
+        if has_error == "yes":
+            self.check_ans_btn.config(bg=error_back)
+            self.check_ans_btn.config(text=error_feedback)
+
+        self.check_ans_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
+                                    bg="#95E06C", pady=7,
+                                    command=lambda: self.next(correct,questions))
+        self.check_ans_btn.grid(row=2, column=1)
+
+    def next(self, correct,questions):
+        self.get1_label = Label(self.ask_questions_frame,
+                                text=questions,
+                                font="arial 10 bold", fg="black", bg="yellow")
+        self.get1_label.grid(row=1)
+        self.checking_ans_btn = Entry(self.ask_questions_frame, font="arial 15 bold")
+        self.checking_ans_btn.grid(row=2)
         answer = self.checking_ans_btn.get()
 
         # Set error background colour (and assum that there are no)
@@ -398,7 +445,7 @@ class Addition:
                 self.check_ans_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold",
                                             fg="black",
                                             bg="#95E06C", pady=7,
-                                            command=lambda: self.next(correct))
+                                            command=lambda: self.next)
                 self.check_ans_btn.grid(row=2, column=1)
 
         except ValueError:
@@ -408,43 +455,6 @@ class Addition:
         if has_error == "yes":
             self.check_ans_btn.config(bg=error_back)
             self.check_ans_btn.config(text=error_feedback)
-
-    def next(self, correct):
-        answer = self.checking_ans_btn.get()
-
-        # Set error background colour (and assum that there are no)
-        # error at the start
-        error_back = "#ffafaf"
-        has_error = "no"
-        error_feedback = ""
-
-        # change background to white (for testing purposes) ...
-        self.check_ans_btn.config(bg="white")
-        self.check_ans_btn.config(text="")
-
-        try:
-            answer = int(answer)
-            correct = int(correct)
-
-            if answer != correct:
-                has_error = "yes"
-                error_feedback = "incorrect"
-            elif answer == correct:
-                has_error = "no"
-                self.check_ans_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold",
-                                            fg="black",
-                                            bg="#95E06C", pady=7,
-                                            command=lambda: self.next())
-                self.check_ans_btn.grid(row=2, column=1)
-
-        except ValueError:
-            has_error = "yes"
-            error_feedback = "Please fill the boxes"
-
-        if has_error == "yes":
-            self.check_ans_btn.config(bg=error_back)
-            self.check_ans_btn.config(text=error_feedback)
-
 
     def close_addition(self, partner):
         # Put help button back to normal
