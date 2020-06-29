@@ -75,7 +75,7 @@ class Quiz:
         self.cho_btn__frame.grid(row=2)
 
         self.addition_btn = Button(self.cho_btn__frame, text="Addition", font="arial 20 bold", fg=font_color,
-                                   bg=btn_color, padx=35, command=self.addition)
+                                   bg=btn_color,padx=10,width=10, command=lambda: self.to_game(1))
         self.addition_btn.grid(row=1)
 
         self.addition_label = Label(self.cho_btn__frame,
@@ -85,7 +85,7 @@ class Quiz:
 
         self.subtraction_btn = Button(self.cho_btn__frame,
                                    text="Subtraction", font="arial 20 bold", fg=font_color,
-                                   bg=btn_color, padx=36, command=self.subtraction)
+                                   bg=btn_color, padx=10,width=10, command=lambda: self.to_game(2))
         self.subtraction_btn.grid(row=2)
 
         self.subtraction_label = Label(self.cho_btn__frame,
@@ -95,7 +95,7 @@ class Quiz:
 
         self.multiplication_btn = Button(self.cho_btn__frame,
                                          text="Multiplication", font="arial 20 bold", fg=font_color,
-                                         bg=btn_color, command=self.multiplication)
+                                         bg=btn_color,padx=10,width=10, command=lambda: self.to_game(3))
         self.multiplication_btn.grid(row=3)
 
         self.multiplication = Label(self.cho_btn__frame,
@@ -120,18 +120,6 @@ class Quiz:
         print("you need help")
         get_help = Help(self)
         get_help.help_text.configure(text="You have to pick a top and you will be getting tested on in")
-
-    def multiplication(self):
-        get_multiplication = Multiplication(self)
-        get_multiplication.multiplication_text.configure(text="Fill in the boxes")
-
-    def addition(self):
-        get_addition = Addition(self)
-        get_addition.addition_text.configure(text="Fill in the boxes")
-
-    def subtraction(self):
-        get_subtraction = Subtraction(self, )
-        get_subtraction.subtraction_text.configure(text="Fill in the boxes")
 
     def check_question(self):
         starting_question = self.cho_num_entry.get()
@@ -220,170 +208,42 @@ class Quiz:
             self.low_amount.set(low_amount)
             self.high_amount.set(high_amount)
 
-    def subtraction(self):
+    def to_game(self, op):
         starting_question = self.cho_num_entry.get()
         low_amount = self.low_num_entry.get()
         high_amount = self.high_num_entry.get()
         print(starting_question, low_amount, high_amount)
 
-        Subtraction(self, starting_question, low_amount, high_amount)
-
-        # hide start up window
-        root.withdraw()
-
-    def addition(self):
-        starting_question = self.cho_num_entry.get()
-        low_amount = self.low_num_entry.get()
-        high_amount = self.high_num_entry.get()
-        print(starting_question, low_amount, high_amount)
-
-        Addition(self, starting_question, low_amount, high_amount)
-
-    def multiplication(self):
-        starting_question = self.cho_num_entry.get()
-        low_amount = self.low_num_entry.get()
-        high_amount = self.high_num_entry.get()
-        print(starting_question, low_amount, high_amount)
-
-        Multiplication(self, starting_question, low_amount, high_amount)
-
-        # hide start up window
-        root.withdraw()
+        Game(self, op,starting_question, low_amount, high_amount)
 
 
-class Subtraction:
-    def __init__(self, partner, starting_question, low_amount, high_amount):
+class Game:
+    def __init__(self, partner, op, starting_question, low_amount, high_amount):
         starting_question = int(starting_question)
         low_amount = int(low_amount)
         high_amount = int(high_amount)
         background_color = "#8FF7A7"
-
-        for item in range(starting_question):
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
-            questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
-            correct = hi_lo_num + hi_lo_num2
-
-        # disable button
-        partner.subtraction_btn.config(state=DISABLED)
-        partner.subtraction_btn.config(state=DISABLED)
-        partner.multiplication_btn.config(state=DISABLED)
-        partner.help_button.config(state=DISABLED)
-
-        # Set up Geo game one
-        self.subtraction_box = Toplevel()
-
-        # Set up GUI Frame
-        self.subtraction_frame = Frame(self.subtraction_box, width=300, bg=background_color)
-        self.subtraction_frame.grid()
-        # Set up Geo Instruction heading (row 0)
-        self.heading = Label(self.subtraction_frame, text="Subtraction",
-                             font="arial 20 bold", bg=background_color)
-        self.heading.grid(row=0)
-        # Geo text (label, row 1)
-        self.subtraction_text = Label(self.subtraction_frame,
-                                   text="Fill the boxes",
-                                   justify=LEFT, width=50, bg=background_color, wrap=200)
-        self.subtraction_text.grid(row=1)
-
-        self.ask_questions_frame = Frame(self.subtraction_frame, bg=background_color)
-        self.ask_questions_frame.grid(row=1)
-
-        self.get1_label = Label(self.ask_questions_frame,
-                                text=questions,
-                                font="arial 10 bold", fg="black", bg=background_color)
-        self.get1_label.grid(row=1)
-
-        self.checking_ans_btn = Entry(self.ask_questions_frame, font="arial 15 bold")
-        self.checking_ans_btn.grid(row=2)
-
-        self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
-                                    bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount,correct))
-        self.check_ans_btn.grid(row=2, column=1)
-
-        # Dismiss button (row 2)
-        self.dismiss_btn = Button(self.ask_questions_frame, text="Dismiss", width=10, bg="red",
-                                  font="arial 10 bold",
-                                  command=partial(self.close_subtraction, partner))
-        self.dismiss_btn.grid(row=3)
-
-    def check_ans(self,low_amount, high_amount,correct):
-        answer = self.checking_ans_btn.get()
-
-        # Set error background colour (and assum that there are no)
-        # error at the start
-        error_back = "#ffafaf"
-        has_error = "no"
-        error_feedback = ""
-
-        # change background to white (for testing purposes) ...
-        self.check_ans_btn.config(bg="white")
-        self.check_ans_btn.config(text="")
-
-        try:
-            answer = int(answer)
-            correct = int(correct)
-
-            if answer != correct:
-                has_error = "yes"
-                self.wrong_label = Label(self.ask_questions_frame, text=" opp's wrong answer",
-                                         font="arial 10 bold",fg="black",bg="#95E06C", pady=7,)
-                self.wrong_label.grid(row=3)
-            elif answer == correct:
-                has_error = "no"
-                self.right_label = Label(self.ask_questions_frame, text=" that's the right answer",
-                                         font="arial 10 bold", fg="black", bg="#95E06C", pady=7, )
-                self.right_label.grid(row=3)
-
-        except ValueError:
-            has_error = "yes"
-            error_feedback = "Please fill the boxes"
-
-        if has_error == "yes":
-            self.check_ans_btn.config(bg=error_back)
-            self.check_ans_btn.config(text=error_feedback)
-
-        self.check_ans_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
-                                    bg="#95E06C", pady=7,
-                                    command=lambda: self.next(low_amount, high_amount))
-        self.check_ans_btn.grid(row=2, column=1)
-
-    def next(self,low_amount, high_amount):
-
-        hi_lo_num = random.randrange(low_amount, high_amount)
-        hi_lo_num2 = random.randrange(low_amount, high_amount)
-        questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
-        self.get1_label.config(text=questions)
-        correct = hi_lo_num + hi_lo_num2
-
-        self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
-                                    bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount,correct))
-        self.check_ans_btn.grid(row=2, column=1)
+        op = int(op)
 
 
-    def close_subtraction(self, partner):
-        # Put help button back to normal
-        partner.subtraction_btn.config(state=NORMAL)
-        partner.subtraction_btn.config(state=NORMAL)
-        partner.multiplication_btn.config(state=NORMAL)
-        partner.help_button.config(state=NORMAL)
-        self.subtraction_box.destroy()
-
-
-class Addition:
-    def __init__(self, partner, starting_question, low_amount, high_amount):
-        starting_question = int(starting_question)
-        low_amount = int(low_amount)
-        high_amount = int(high_amount)
-        background_color = "#8FF7A7"
-
-        for item in range(starting_question):
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
-            questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
-            correct = hi_lo_num + hi_lo_num2
+        if op == 1:
+            for item in range(starting_question):
+                hi_lo_num = random.randrange(low_amount, high_amount)
+                hi_lo_num2 = random.randrange(low_amount, high_amount)
+                questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
+                correct = hi_lo_num + hi_lo_num2
+        elif op == 2:
+            for item in range(starting_question):
+                hi_lo_num = random.randrange(low_amount, high_amount)
+                hi_lo_num2 = random.randrange(low_amount, high_amount)
+                questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
+                correct = hi_lo_num - hi_lo_num2
+        elif op == 3:
+            for item in range(starting_question):
+                hi_lo_num = random.randrange(low_amount, high_amount)
+                hi_lo_num2 = random.randrange(low_amount, high_amount)
+                questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
+                correct = hi_lo_num * hi_lo_num2
 
         # disable button
         partner.addition_btn.config(state=DISABLED)
@@ -402,10 +262,10 @@ class Addition:
                              font="arial 20 bold", bg=background_color)
         self.heading.grid(row=0)
         # Geo text (label, row 1)
-        self.addition_text = Label(self.addition_frame,
+        self.game = Label(self.addition_frame,
                                    text="Fill the boxes",
                                    justify=LEFT, width=50, bg=background_color, wrap=200)
-        self.addition_text.grid(row=1)
+        self.game.grid(row=1)
 
         self.ask_questions_frame = Frame(self.addition_frame, bg=background_color)
         self.ask_questions_frame.grid(row=1)
@@ -420,7 +280,7 @@ class Addition:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount,correct))
+                                    command=lambda: self.check_ans(low_amount, high_amount,correct,op))
         self.check_ans_btn.grid(row=2, column=1)
 
         # Dismiss button (row 2)
@@ -429,7 +289,7 @@ class Addition:
                                   command=partial(self.close_addition, partner))
         self.dismiss_btn.grid(row=3)
 
-    def check_ans(self,low_amount, high_amount,correct):
+    def check_ans(self,low_amount, high_amount,correct,op):
         answer = self.checking_ans_btn.get()
 
         # Set error background colour (and assum that there are no)
@@ -467,20 +327,33 @@ class Addition:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.next(low_amount, high_amount))
+                                    command=lambda: self.next(low_amount, high_amount,op))
         self.check_ans_btn.grid(row=2, column=1)
 
-    def next(self,low_amount, high_amount):
+    def next(self,low_amount, high_amount,op):
 
-        hi_lo_num = random.randrange(low_amount, high_amount)
-        hi_lo_num2 = random.randrange(low_amount, high_amount)
-        questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
-        self.get1_label.config(text=questions)
-        correct = hi_lo_num + hi_lo_num2
+        if op == 1:
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
+            questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
+            self.get1_label.config(text=questions)
+            correct = hi_lo_num + hi_lo_num2
+        elif op == 2:
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
+            questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
+            self.get1_label.config(text=questions)
+            correct = hi_lo_num - hi_lo_num2
+        elif op == 3:
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
+            questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
+            self.get1_label.config(text=questions)
+            correct = hi_lo_num * hi_lo_num2
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount,correct))
+                                    command=lambda: self.check_ans(low_amount, high_amount,correct,op))
         self.check_ans_btn.grid(row=2, column=1)
 
 
@@ -491,52 +364,6 @@ class Addition:
         partner.multiplication_btn.config(state=NORMAL)
         partner.help_button.config(state=NORMAL)
         self.addition_box.destroy()
-
-
-class Multiplication:
-    def __init__(self, partner, starting_question, low_amount, high_amount):
-        starting_question = int(starting_question)
-        low_amount = int(low_amount)
-        high_amount = int(high_amount)
-        background_color = "#8FF7A7"
-
-        # disable button
-        partner.addition_btn.config(state=DISABLED)
-        partner.subtraction_btn.config(state=DISABLED)
-        partner.multiplication_btn.config(state=DISABLED)
-        partner.help_button.config(state=DISABLED)
-
-        # Set up Geo game one
-        self.Multiplication_box = Toplevel()
-
-        # Set up GUI Frame
-        self.Multiplication_frame = Frame(self.Multiplication_box, width=300, bg=background_color)
-        self.Multiplication_frame.grid()
-        # Set up Geo Instruction heading (row 0)
-        self.heading = Label(self.Multiplication_frame,
-                             text="Multiplication",
-                             font="arial 20 bold", bg=background_color)
-        self.heading.grid(row=0)
-        # Geo text (label, row 1)
-        self.multiplication_text = Label(self.Multiplication_frame,
-                                         text="Fill the boxes",
-                                         justify=LEFT, width=50, bg=background_color, wrap=200)
-        self.multiplication_text.grid(column=0, row=1)
-
-        # Dismiss button (row 2)
-        self.dismiss_btn = Button(self.Multiplication_frame, text="Dismiss", width=10, bg="red",
-                                  font="arial 10 bold",
-                                  command=partial(self.close_multiplication, partner))
-        self.dismiss_btn.grid(row=2, pady=10)
-
-    def close_multiplication(self, partner):
-        # Put help button back to normal
-        partner.addition_btn.config(state=NORMAL)
-        partner.subtraction_btn.config(state=NORMAL)
-        partner.multiplication_btn.config(state=NORMAL)
-        partner.help_button.config(state=NORMAL)
-        self.Multiplication_box.destroy()
-
 
 class Help:
     def __init__(self, partner):
