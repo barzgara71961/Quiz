@@ -222,6 +222,13 @@ class Game:
 
         starting_question = int(starting_question)
         questions_played = int(0)
+
+        hi_lo_num = random.randrange(low_amount, high_amount)
+        hi_lo_num2 = random.randrange(low_amount, high_amount)
+
+        self.correct = IntVar()
+        self.correct.set(0)
+
         low_amount = int(low_amount)
         high_amount = int(high_amount)
         background_color = "#8FF7A7"
@@ -229,22 +236,19 @@ class Game:
         op = int(op)
 
         if op == 1:
-                hi_lo_num = random.randrange(low_amount, high_amount)
-                hi_lo_num2 = random.randrange(low_amount, high_amount)
                 questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
-                correct = hi_lo_num + hi_lo_num2
+                var_correct = hi_lo_num + hi_lo_num2
+                self.correct.set(var_correct)
                 op_text = "Addition"
         elif op == 2:
-                hi_lo_num = random.randrange(low_amount, high_amount)
-                hi_lo_num2 = random.randrange(low_amount, high_amount)
                 questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
-                correct = hi_lo_num - hi_lo_num2
+                var_correct = hi_lo_num - hi_lo_num2
+                self.correct.set(var_correct)
                 op_text = "Subtraction"
         elif op == 3:
-                hi_lo_num = random.randrange(low_amount, high_amount)
-                hi_lo_num2 = random.randrange(low_amount, high_amount)
                 questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
-                correct = hi_lo_num * hi_lo_num2
+                var_correct = hi_lo_num * hi_lo_num2
+                self.correct.set(var_correct)
                 op_text = "Multiplication"
 
         # disable button
@@ -282,7 +286,7 @@ class Game:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount,correct, op, starting_question, questions_played))
+                                    command=lambda: self.check_ans(low_amount, high_amount, op, starting_question, questions_played))
         self.check_ans_btn.grid(row=2, column=1)
 
     # Dismiss button (row 4)
@@ -291,7 +295,7 @@ class Game:
                                 command=partial(self.close_addition, partner))
         self.dismiss_btn.grid(row=4)
 
-    def check_ans(self, low_amount, high_amount, correct, op, starting_question, questions_played):
+    def check_ans(self, low_amount, high_amount, op, starting_question, questions_played):
         answer = self.checking_ans_btn.get()
 
         # Set error background colour (and assum that there are no)
@@ -300,17 +304,19 @@ class Game:
         has_error = "no"
         error_feedback = ""
 
+        var_correct = self.correct.get()
+
         # change background to white (for testing purposes) ...
         self.check_ans_btn.config(bg="white")
         self.check_ans_btn.config(text="")
 
         try:
             answer = int(answer)
-            correct = int(correct)
+            correct = int(var_correct)
 
             if answer != correct:
                 has_error = "yes"
-                self.wrong_label = Label(self.ask_questions_frame, text=" Opp's wrong answer",
+                self.wrong_label = Label(self.ask_questions_frame, text=" Opp's wrong answer ",
                                          font="arial 10 bold",fg="black",bg="#8FF7A7", pady=7,)
                 self.wrong_label.grid(row=3)
             elif answer == correct:
@@ -334,35 +340,32 @@ class Game:
 
     def next(self,low_amount, high_amount, op, starting_question, questions_played):
         starting_question = int(starting_question)
+        hi_lo_num = random.randrange(low_amount, high_amount)
+        hi_lo_num2 = random.randrange(low_amount, high_amount)
 
         if questions_played >= starting_question:
-            self.check_ans_btn.config(state=DISABLED)
-            self.check_ans_btn.config(text="Game Over")
+            self.check_ans_btn = Button(self.ask_questions_frame, text=" Game Over", font="arial 10 bold", fg="black",
+                                        bg="red", pady=7)
+            self.check_ans_btn.grid(row=2, column=1)
         elif op == 1:
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
-            correct = hi_lo_num + hi_lo_num2
+            var_correct = hi_lo_num + hi_lo_num2
+            self.correct.set(var_correct)
             questions_played += 1
             print(questions_played)
         elif op == 2:
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
-            correct = hi_lo_num - hi_lo_num2
+            var_correct = hi_lo_num - hi_lo_num2
+            self.correct.set(var_correct)
             questions_played += 1
         elif op == 3:
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
-            correct = hi_lo_num * hi_lo_num2
+            var_correct = hi_lo_num * hi_lo_num2
+            self.correct.set(var_correct)
             questions_played += 1
-        elif questions_played >= starting_question:
-            self.check_ans_btn.config(state=DISABLED)
-            self.check_ans_btn.config(text="Game Over")
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
