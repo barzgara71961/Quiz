@@ -3,6 +3,7 @@ from functools import partial  # To prevent unwanted windows
 
 import random
 
+
 class Quiz:
     def __init__(self):
 
@@ -223,9 +224,6 @@ class Game:
         starting_question = int(starting_question)
         questions_played = int(0)
 
-        hi_lo_num = random.randrange(low_amount, high_amount)
-        hi_lo_num2 = random.randrange(low_amount, high_amount)
-
         self.correct = IntVar()
         self.correct.set(0)
 
@@ -236,20 +234,26 @@ class Game:
         op = int(op)
 
         if op == 1:
-                questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
-                var_correct = hi_lo_num + hi_lo_num2
-                self.correct.set(var_correct)
-                op_text = "Addition"
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
+            questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
+            var_correct = hi_lo_num + hi_lo_num2
+            self.correct.set(var_correct)
+            op_text = "Addition"
         elif op == 2:
-                questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
-                var_correct = hi_lo_num - hi_lo_num2
-                self.correct.set(var_correct)
-                op_text = "Subtraction"
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
+            questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
+            var_correct = hi_lo_num - hi_lo_num2
+            self.correct.set(var_correct)
+            op_text = "Subtraction"
         elif op == 3:
-                questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
-                var_correct = hi_lo_num * hi_lo_num2
-                self.correct.set(var_correct)
-                op_text = "Multiplication"
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
+            questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
+            var_correct = hi_lo_num * hi_lo_num2
+            self.correct.set(var_correct)
+            op_text = "Multiplication"
 
         # disable button
         partner.addition_btn.config(state=DISABLED)
@@ -289,11 +293,14 @@ class Game:
                                     command=lambda: self.check_ans(low_amount, high_amount, op, starting_question, questions_played))
         self.check_ans_btn.grid(row=2, column=1)
 
+        self.dismiss_export_frame = Frame(self.addition_frame, bg=background_color)
+        self.dismiss_export_frame.grid(row=2)
+
     # Dismiss button (row 4)
-        self.dismiss_btn = Button(self.ask_questions_frame, text="Dismiss", width=10, bg="red",
+        self.dismiss_btn = Button(self.dismiss_export_frame, text="Dismiss", width=10, bg="red",
                                 font="arial 10 bold",
                                 command=partial(self.close_addition, partner))
-        self.dismiss_btn.grid(row=4)
+        self.dismiss_btn.grid(row=1)
 
     def check_ans(self, low_amount, high_amount, op, starting_question, questions_played):
         answer = self.checking_ans_btn.get()
@@ -330,24 +337,31 @@ class Game:
             error_feedback = "Please fill the boxes"
 
         if has_error == "yes":
-            self.check_ans_btn.config(bg=error_back)
-            self.check_ans_btn.config(text=error_feedback)
+            self.next_btn.config(bg=error_back)
+            self.next_btn.config(text=error_feedback)
 
-        self.check_ans_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
+        if questions_played >= starting_question:
+            self.game_over_btn = Button(self.ask_questions_frame, text="Game Over", font="arial 10 bold", fg="black",
+                                   bg="red", pady=7)
+            self.game_over_btn.grid(row=2, column=1)
+            self.next_btn.config(state=DISABLED)
+        else:
+            self.next_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
+                                        bg="#95E06C", pady=7,
+                                        command=lambda: self.next(low_amount, high_amount, op, starting_question, questions_played))
+            self.next_btn.grid(row=2, column=1)
+
+        self.export_btn = Button(self.dismiss_export_frame, text="Export", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.next(low_amount, high_amount, op, starting_question, questions_played))
-        self.check_ans_btn.grid(row=2, column=1)
+                                    command=lambda: self.export(low_amount, high_amount, questions_played))
+        self.export_btn.grid(row=1, column=2)
 
     def next(self,low_amount, high_amount, op, starting_question, questions_played):
         starting_question = int(starting_question)
-        hi_lo_num = random.randrange(low_amount, high_amount)
-        hi_lo_num2 = random.randrange(low_amount, high_amount)
 
-        if questions_played >= starting_question:
-            self.check_ans_btn = Button(self.ask_questions_frame, text=" Game Over", font="arial 10 bold", fg="black",
-                                        bg="red", pady=7)
-            self.check_ans_btn.grid(row=2, column=1)
-        elif op == 1:
+        if op == 1:
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
             var_correct = hi_lo_num + hi_lo_num2
@@ -355,12 +369,16 @@ class Game:
             questions_played += 1
             print(questions_played)
         elif op == 2:
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
             var_correct = hi_lo_num - hi_lo_num2
             self.correct.set(var_correct)
             questions_played += 1
         elif op == 3:
+            hi_lo_num = random.randrange(low_amount, high_amount)
+            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
             var_correct = hi_lo_num * hi_lo_num2

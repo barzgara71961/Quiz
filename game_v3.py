@@ -335,27 +335,24 @@ class Game:
     def next(self,low_amount, high_amount, op, starting_question, questions_played):
         starting_question = int(starting_question)
 
+        hi_lo_num = random.randrange(low_amount, high_amount)
+        hi_lo_num2 = random.randrange(low_amount, high_amount)
+
         if questions_played >= starting_question:
             self.check_ans_btn.config(state=DISABLED)
             self.check_ans_btn.config(text="Game Over")
         elif op == 1:
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} + {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
             correct = hi_lo_num + hi_lo_num2
             questions_played += 1
             print(questions_played)
         elif op == 2:
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} - {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
             correct = hi_lo_num - hi_lo_num2
             questions_played += 1
         elif op == 3:
-            hi_lo_num = random.randrange(low_amount, high_amount)
-            hi_lo_num2 = random.randrange(low_amount, high_amount)
             questions = "{} x {}".format(hi_lo_num, hi_lo_num2)
             self.get1_label.config(text=questions)
             correct = hi_lo_num * hi_lo_num2
@@ -366,7 +363,7 @@ class Game:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount, op,
+                                    command=lambda: self.check_ans(low_amount, high_amount, op, correct,
                                                                    starting_question, questions_played))
         self.check_ans_btn.grid(row=2, column=1)
 
