@@ -217,6 +217,7 @@ class Quiz:
 
         Game(self, op,starting_question, low_amount, high_amount)
 
+
 class Game:
     def __init__(self, partner, op, starting_question, low_amount, high_amount):
 
@@ -468,7 +469,7 @@ class Export:
         print(low_amount, high_amount, questions_played, how_many_right)
         print(history_questions)
 
-        background_color = "#68B684"
+        background_color = "#8FF7A7"
 
         # disable export button
         partner.export_btn.config(state=DISABLED)
@@ -501,6 +502,16 @@ class Export:
                                  justify=LEFT, width=50, bg=background_color, wrap=200)
         self.export_text.grid(row=1)
 
+        # Help text (label, row 1)
+        self.history_label = Label(self.export_frame, text="your low number was: {}""\n"
+                                                           "your high number was: {}""\n"
+                                                           "you have played {} around""\n"
+                                                           "you got {} correct out of {}  ""\n"
+                                   .format(low_amount, high_amount,questions_played,how_many_right,questions_played),
+                                 font="arial 13 italic",
+                                 justify=LEFT, width=50, bg=background_color, wrap=200)
+        self.history_label.grid(row=2)
+
         # Warning text (label, row2)
         self.export_text = Label(self.export_frame, text="If the filename"
                                                          "you enter below"
@@ -512,15 +523,15 @@ class Export:
                                  justify=LEFT, bg=background_color, fg="black",
                                  font="arial 10 italic", wrap=225, padx=10,
                                  pady=10)
-        self.export_text.grid(row=2, pady=10)
+        self.export_text.grid(row=3, pady=10)
 
         # filename entry box (row 3)
-        self.filename_entry = Entry(self.export_frame, width=20,
-                                    font="arial 14 bold", justify=CENTER)
-        self.filename_entry.grid(row=3, pady=10)
+        self.filename_entry = Entry(self.export_frame, width=15,
+                                    font="arial 14 bold")
+        self.filename_entry.grid(row=4, pady=10)
 
         # error massage labels (initially blank, row 4 )
-        self.save_error_label = Label(self.export_frame, text="", fg="black",
+        self.save_error_label = Label(self.export_frame, text=" ", fg="black",
                                       bg=background_color)
         self.save_error_label.grid(row=4)
 
@@ -538,7 +549,7 @@ class Export:
 
         self.cancel_button = Button(self.save_cancel_frame, text="Cancel",
                                     font="arial 10 bold", fg="black",
-                                    bg="#95E06C", padx=10, pady=10,
+                                    bg="red", padx=10, pady=10,
                                     command=partial(self.close_export, partner))
         self.cancel_button.grid(row=0, column=1)
 
