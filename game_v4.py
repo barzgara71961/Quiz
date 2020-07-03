@@ -80,8 +80,8 @@ class Quiz:
         self.addition_btn.grid(row=1)
 
         self.addition_label = Label(self.cho_btn__frame,
-                                    text="this is a place holder",
-                                    font="arial 10 bold", fg=font_color, bg="#F7FE72")
+                                    text="This game mode gives you Addition questions ",
+                                    font="arial 10 bold",wrap=200, fg=font_color, bg="#F7FE72")
         self.addition_label.grid(row=1, column=1)
 
         self.subtraction_btn = Button(self.cho_btn__frame,
@@ -90,8 +90,8 @@ class Quiz:
         self.subtraction_btn.grid(row=2)
 
         self.subtraction_label = Label(self.cho_btn__frame,
-                                    text="this is a place holder",
-                                    font="arial 10 bold", fg=font_color, bg="#F7FE72")
+                                    text="This game mode gives you Subtraction questions",
+                                    font="arial 10 bold",wrap=200, fg=font_color, bg="#F7FE72")
         self.subtraction_label.grid(row=2, column=1)
 
         self.multiplication_btn = Button(self.cho_btn__frame,
@@ -100,8 +100,8 @@ class Quiz:
         self.multiplication_btn.grid(row=3)
 
         self.multiplication = Label(self.cho_btn__frame,
-                                    text="this is a place holder ",
-                                    font="arial 10 bold", fg=font_color, bg="#F7FE72")
+                                    text="This game mode gives you Multiplication questions ",
+                                    font="arial 10 bold", wrap=200, fg=font_color, bg="#F7FE72")
         self.multiplication.grid(row=3, column=1)
 
         self.help_frame = Frame(self.quiz_frame)
@@ -120,7 +120,7 @@ class Quiz:
     def help(self):
         print("you need help")
         get_help = Help(self)
-        get_help.help_text.configure(text="You have to pick a top and you will be getting tested on in")
+        get_help.help_text.configure()
 
     def check_question(self):
         starting_question = self.cho_num_entry.get()
@@ -323,38 +323,34 @@ class Game:
 
             if answer != correct:
                 has_error = "yes"
-                self.wrong_label = Label(self.ask_questions_frame, text=" Opp's wrong answer ",
+                self.feedback_label = Label(self.ask_questions_frame, text=" Opp's wrong answer ",
                                          font="arial 10 bold",fg="black",bg="#8FF7A7", pady=7,)
-                self.wrong_label.grid(row=3)
+                self.feedback_label.grid(row=3)
             elif answer == correct:
                 has_error = "no"
-                self.right_label = Label(self.ask_questions_frame, text=" That's the right answer",
+                self.feedback_label = Label(self.ask_questions_frame, text=" That's the right answer",
                                          font="arial 10 bold", fg="black", bg="#8FF7A7", pady=7, )
-                self.right_label.grid(row=3)
+                self.feedback_label.grid(row=3)
 
         except ValueError:
             has_error = "yes"
             error_feedback = "Please fill the boxes"
 
-        if has_error == "yes":
-            self.next_btn.config(bg=error_back)
-            self.next_btn.config(text=error_feedback)
-
         if questions_played >= starting_question:
             self.game_over_btn = Button(self.ask_questions_frame, text="Game Over", font="arial 10 bold", fg="black",
                                    bg="red", pady=7)
             self.game_over_btn.grid(row=2, column=1)
+            self.export_btn = Button(self.dismiss_export_frame, text="Export", font="arial 10 bold", fg="black",
+                                     bg="#95E06C", width=8,
+                                     command=lambda: self.export(low_amount, high_amount, questions_played))
+            self.export_btn.grid(row=1, column=1)
             self.next_btn.config(state=DISABLED)
         else:
+            self.checking_ans_btn.config(text="")
             self.next_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
                                         bg="#95E06C", pady=7,
                                         command=lambda: self.next(low_amount, high_amount, op, starting_question, questions_played))
             self.next_btn.grid(row=2, column=1)
-
-        self.export_btn = Button(self.dismiss_export_frame, text="Export", font="arial 10 bold", fg="black",
-                                    bg="#95E06C", pady=7,
-                                    command=lambda: self.export(low_amount, high_amount, questions_played))
-        self.export_btn.grid(row=1, column=2)
 
     def next(self,low_amount, high_amount, op, starting_question, questions_played):
         starting_question = int(starting_question)
@@ -399,6 +395,9 @@ class Game:
         partner.help_button.config(state=NORMAL)
         self.addition_box.destroy()
 
+    def export(self, low_amount, high_amount, questions_played):
+        Export(self, low_amount, high_amount, questions_played)
+
 
 class Help:
     def __init__(self, partner):
@@ -423,8 +422,17 @@ class Help:
         self.how_heading.grid(row=0)
         # Help text (label, row 1)
         self.help_text = Label(self.help_frame,
-                               text="i have no idea where this is going to be",
-                               justify=LEFT, width=50, bg=background_color, wrap=200)
+                               text="This is a math game "
+                                    " It will help you to learn addition subtraction and multiplication \n"
+                               "\n"
+                                    "How do you play?\n"
+                                "\n"
+                                    "The first box is for how many  want to play a min of 5 and a max of 20\n"
+                               "\n"
+                                    "The second box is for the lowest number you want your questions to be\n"
+                               "\n"
+                                    "The second box is for the highest number you want your questions to be \n ",
+                               justify=LEFT, width=50, bg=background_color, wrap=400, font="arial 15 ")
         self.help_text.grid(column=0, row=1)
 
         # Dismiss button (row 2)
@@ -441,6 +449,139 @@ class Help:
         partner.help_button.config(state=NORMAL)
         self.help_box.destroy()
 
+class Export:
+    def __init__(self, partner, low_amount, high_amount, questions_played):
+
+        print(low_amount, high_amount, questions_played)
+
+        background_color = "#68B684"
+
+        # disable export button
+        partner.export_btn.config(state=DISABLED)
+
+        # Set up child window (ie: export box)
+        self.export_box = Toplevel()
+
+        # If user press cross at top, closes export and
+        # 'releases' export button
+        self.export_box.protocol('WM_DELETE_WINDOW',
+                                 partial(self.close_export, partner))
+
+        # Set up GUI Frame
+        self.export_frame = Frame(self.export_box, width=300, bg=background_color)
+        self.export_frame.grid()
+
+        # Set up export heading (row 0)
+        self.how_heading = Label(self.export_frame,
+                                 text="Export", fg="black",
+                                 font="arial 20 bold", bg=background_color)
+        self.how_heading.grid(row=0)
+
+        # Help text (label, row 1)
+        self.export_text = Label(self.export_frame, text="Enter a filename"
+                                                         "in the box below"
+                                                         "button to save your"
+                                                         "game history"
+                                                         "to a text file.",
+                                 font="arial 13 italic",
+                                 justify=LEFT, width=50, bg=background_color, wrap=200)
+        self.export_text.grid(row=1)
+
+        # Warning text (label, row2)
+        self.export_text = Label(self.export_frame, text="If the filename"
+                                                         "you enter below"
+                                                         "already exists,"
+                                                         "its contents will"
+                                                         "be replaced with"
+                                                         "your game"
+                                                         "history",
+                                 justify=LEFT, bg=background_color, fg="black",
+                                 font="arial 10 italic", wrap=225, padx=10,
+                                 pady=10)
+        self.export_text.grid(row=2, pady=10)
+
+        # filename entry box (row 3)
+        self.filename_entry = Entry(self.export_frame, width=20,
+                                    font="arial 14 bold", justify=CENTER)
+        self.filename_entry.grid(row=3, pady=10)
+
+        # error massage labels (initially blank, row 4 )
+        self.save_error_label = Label(self.export_frame, text="", fg="black",
+                                      bg=background_color)
+        self.save_error_label.grid(row=4)
+
+        # Save / Cancel Frame (row 4)
+        self.save_cancel_frame = Frame(self.export_frame)
+        self.save_cancel_frame.grid(row=5, pady=10)
+
+        # Save and Cancel buttons 9row 0 of save_cancel_frame)
+        self.save_button = Button(self.save_cancel_frame, text="Save",
+                                  font="arial 10 bold", fg="black",
+                                  bg="#95E06C", padx=10, pady=10,
+                                  command=partial(lambda: self.save_history(partner, low_amount, high_amount,
+                                                                            questions_played)))
+        self.save_button.grid(row=0, column=0)
+
+        self.cancel_button = Button(self.save_cancel_frame, text="Cancel",
+                                    font="arial 10 bold", fg="black",
+                                    bg="#95E06C", padx=10, pady=10,
+                                    command=partial(self.close_export, partner))
+        self.cancel_button.grid(row=0, column=1)
+
+    def save_history(self, partner, low_amount, high_amount, questions_played):
+
+        # Regular expression to check filname is valid
+        valid_char = "[A-Za-z0-9_]"
+        has_error = "no"
+
+        filename = self.filename_entry.get()
+        print(filename)
+
+        for letter in filename:
+            if re.match(valid_char, letter):
+                continue
+
+            elif letter == " ":
+                problem = "(no spaces allowed)"
+
+            else:
+                problem = ("(no {}'s allowed)".format(letter))
+            has_error = "yes"
+            break
+
+        if filename == "":
+            problem = "can't be blank"
+            has_error = "yes"
+
+        if has_error == "yes":
+            # Display error message
+            self.save_error_label.config(text="Invalid filename - {}".format(problem))
+            # Change entry box background to pink
+            self.filename_entry.config(bg="#ffafaf")
+            print()
+
+        else:
+            # If there are no errors, generate text file and then close dialogue
+            # add .txt suffix!
+            filename = filename + ".txt"
+
+            # create file to hold data
+            f = open(filename, "w+")
+
+            # add new line at end of each item
+            f.write("your low number was: {}""\n".format(low_amount))
+            f.write("your high number was: ${}""\n".format(high_amount))
+            f.write("you have played {} around""\n".format(questions_played))
+            # close file
+            f.close()
+
+            # close dialogue
+            self.close_export(partner)
+
+    def close_export(self, partner):
+        # Put export button back to normal...
+        partner.export_btn.config(state=NORMAL)
+        self.export_box.destroy()
 
 # main routine
 if __name__ == "__main__":

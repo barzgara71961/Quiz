@@ -19,140 +19,103 @@
     <favorites_list name="Quiz" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="3_page.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/3_page.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#117#2404#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="05_getting_numbers.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/05_getting_numbers.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4658">
-                  <caret line="277" column="49" selection-start-line="277" selection-start-column="49" selection-end-line="277" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#0#21#0" expanded="true" />
-                    <element signature="e#12890#14742#0" expanded="false" />
-                    <element signature="e#14769#16699#0" expanded="false" />
-                    <element signature="e#16716#18408#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="div_game.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/div_game.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5321">
-                  <caret line="431" column="56" selection-start-line="431" selection-start-column="56" selection-end-line="431" selection-end-column="56" />
-                  <folding>
-                    <element signature="e#0#21#0" expanded="true" />
-                    <element signature="e#9998#15316#0" expanded="false" />
-                    <element signature="e#20641#22599#0" expanded="false" />
-                    <element signature="e#22618#24324#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="game_v3.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/game_v3.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="354" column="21" selection-start-line="354" selection-start-column="21" selection-end-line="354" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#115#8854#0" expanded="false" />
-                    <element signature="e#5123#5280#0" expanded="false" />
-                    <element signature="e#5320#8554#0" expanded="false" />
-                    <element signature="e#8591#8854#0" expanded="false" />
-                    <element signature="e#16051#17757#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-            <entry file="file://C:/Program Files/Python35/Lib/tkinter/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="26299">
-                  <caret line="1549" column="0" selection-start-line="1549" selection-start-column="0" selection-end-line="1549" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="game_v4.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/game_v4.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="332">
-                  <caret line="356" column="44" selection-start-line="356" selection-start-column="44" selection-end-line="356" selection-end-column="44" />
-                  <folding>
-                    <element signature="e#116#8855#0" expanded="false" />
-                    <element signature="e#15055#16743#0" expanded="false" />
-                    <element signature="e#17087#18793#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="00_sandpit.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/00_sandpit.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="133" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#18#5564#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="game_v5_export.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="499">
-                  <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#119#7579#0" expanded="false" />
-                    <element signature="e#7605#8961#0" expanded="false" />
-                    <element signature="e#17181#18593#0" expanded="false" />
-                    <element signature="e#18617#24035#0" expanded="false" />
-                    <element signature="e#24056#29592#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="game_v3.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/game_v3.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="621">
-                  <caret line="426" column="0" selection-start-line="426" selection-start-column="0" selection-end-line="426" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#5123#5280#0" expanded="false" />
-                    <element signature="e#5320#8554#0" expanded="false" />
-                    <element signature="e#16051#17757#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="3_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+              <folding>
+                <element signature="e#117#2404#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="05_getting_numbers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/05_getting_numbers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4658">
+              <caret line="277" column="49" selection-start-line="277" selection-start-column="49" selection-end-line="277" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#12890#14742#0" expanded="false" />
+                <element signature="e#14769#16699#0" expanded="false" />
+                <element signature="e#16716#18408#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="div_game.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/div_game.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5321">
+              <caret line="431" column="56" selection-start-line="431" selection-start-column="56" selection-end-line="431" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#9998#15316#0" expanded="false" />
+                <element signature="e#20641#22599#0" expanded="false" />
+                <element signature="e#22618#24324#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_v3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game_v3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="318" column="53" selection-start-line="318" selection-start-column="53" selection-end-line="318" selection-end-column="53" />
+              <folding>
+                <element signature="e#115#8854#0" expanded="false" />
+                <element signature="e#5123#5280#0" expanded="false" />
+                <element signature="e#5320#8554#0" expanded="false" />
+                <element signature="e#8591#8854#0" expanded="false" />
+                <element signature="e#16051#17757#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="04_page.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/04_page.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-861">
+              <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_v4.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/game_v4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+              <folding>
+                <element signature="e#5356#8590#0" expanded="false" />
+                <element signature="e#6780#7181#0" expanded="false" />
+                <element signature="e#19555#25142#0" expanded="false" />
+                <marker date="1593739076849" expanded="false" signature="17185:19535" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="00_sandpit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/00_sandpit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="133" selection-end-column="33" />
+              <folding>
+                <element signature="e#18#5516#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -180,9 +143,9 @@
         <option value="$PROJECT_DIR$/number_generation.py" />
         <option value="$PROJECT_DIR$/div_game_v2_gk.py" />
         <option value="$PROJECT_DIR$/div_game.py" />
-        <option value="$PROJECT_DIR$/00_sandpit.py" />
         <option value="$PROJECT_DIR$/game_v3.py" />
         <option value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py" />
+        <option value="$PROJECT_DIR$/00_sandpit.py" />
         <option value="$PROJECT_DIR$/game_v4.py" />
       </list>
     </option>
@@ -218,8 +181,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -230,10 +191,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -493,7 +456,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08958333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -601,7 +564,7 @@
         <state relative-caret-position="204">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#18#5564#0" expanded="false" />
+            <element signature="e#18#5516#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -655,7 +618,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#18#5564#0" expanded="false" />
+            <element signature="e#18#5516#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,7 +672,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#18#5564#0" expanded="false" />
+            <element signature="e#18#5516#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -756,7 +719,7 @@
         <state relative-caret-position="663">
           <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
           <folding>
-            <element signature="e#18#5564#0" expanded="false" />
+            <element signature="e#18#5516#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -806,13 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -895,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/3_page.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="0">
           <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding>
             <element signature="e#117#2404#0" expanded="false" />
@@ -936,19 +892,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Python35/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26299">
-          <caret line="1549" column="0" selection-start-line="1549" selection-start-column="0" selection-end-line="1549" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files/Python35/Lib/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -957,29 +904,31 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="133" selection-end-column="33" />
           <folding>
-            <element signature="e#18#5564#0" expanded="false" />
+            <element signature="e#18#5516#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_v3.py">
+    <entry file="file://C:/Program Files/Python35/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="354" column="21" selection-start-line="354" selection-start-column="21" selection-end-line="354" selection-end-column="21" />
-          <folding>
-            <element signature="e#115#8854#0" expanded="false" />
-            <element signature="e#5123#5280#0" expanded="false" />
-            <element signature="e#5320#8554#0" expanded="false" />
-            <element signature="e#8591#8854#0" expanded="false" />
-            <element signature="e#16051#17757#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="245">
+          <caret line="1549" column="0" selection-start-line="1549" selection-start-column="0" selection-end-line="1549" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-861">
+          <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../mystery box v2/Mystery_Box/game_v5_export.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="573" column="0" selection-start-line="573" selection-start-column="0" selection-end-line="573" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="396" column="0" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
           <folding>
             <element signature="e#119#7579#0" expanded="false" />
             <element signature="e#7605#8961#0" expanded="false" />
@@ -990,14 +939,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game_v3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="318" column="53" selection-start-line="318" selection-start-column="53" selection-end-line="318" selection-end-column="53" />
+          <folding>
+            <element signature="e#115#8854#0" expanded="false" />
+            <element signature="e#5123#5280#0" expanded="false" />
+            <element signature="e#5320#8554#0" expanded="false" />
+            <element signature="e#8591#8854#0" expanded="false" />
+            <element signature="e#16051#17757#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game_v4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="356" column="44" selection-start-line="356" selection-start-column="44" selection-end-line="356" selection-end-column="44" />
+        <state relative-caret-position="180">
+          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
           <folding>
-            <element signature="e#116#8855#0" expanded="false" />
-            <element signature="e#15055#16743#0" expanded="false" />
-            <element signature="e#17087#18793#0" expanded="false" />
+            <element signature="e#5356#8590#0" expanded="false" />
+            <element signature="e#6780#7181#0" expanded="false" />
+            <element signature="e#19555#25142#0" expanded="false" />
+            <marker date="1593739076849" expanded="false" signature="17185:19535" ph="..." />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,8 @@
 class Export:
-    def __init__(self, partner, starting_question,questions_played,op):
+    def __init__(self, partner, low_amount, high_amount, questions_played):
 
-        print(starting_question,questions_played,op)
+
+        print(low_amount, high_amount, questions_played)
 
         background_color = "#68B684"
 
@@ -67,7 +68,7 @@ class Export:
         self.save_button = Button(self.save_cancel_frame, text="Save",
                                   font="arial 10 bold", fg="black",
                                   bg="#95E06C",padx=10, pady=10,
-                                  command=partial(lambda: self.save_history(partner, starting_question,questions_played,op)))
+                                  command=partial(lambda: self.save_history(partner, low_amount, high_amount, questions_played)))
         self.save_button.grid(row=0, column=0)
 
         self.cancel_button = Button(self.save_cancel_frame, text="Cancel",
@@ -76,7 +77,7 @@ class Export:
                                     command=partial(self.close_export, partner))
         self.cancel_button.grid(row=0, column=1)
 
-    def save_history(self, partner, starting_question,questions_played,op):
+    def save_history(self, partner, low_amount, high_amount, questions_played):
 
         # Regular expression to check filname is valid
         valid_char = "[A-Za-z0-9_]"
@@ -117,10 +118,9 @@ class Export:
             f = open(filename, "w+")
 
         # add new line at end of each item
-            f.write("Starting Balance: ${}""\n".format(starting_question[0]))
-            f.write("Current Balance: ${}""\n".format(starting_question[1]))
-            f.write("Amount: ${}""\n".format(op))
-            f.write("Rounds: {}""\n".format(len(questions_played)))
+            f.write("Starting Balance: ${}""\n".format(low_amount[0]))
+            f.write("Current Balance: ${}""\n".format(high_amount, [1]))
+            f.write("Amount: ${}""\n".format(questions_played))
 
             # close file
             f.close()
