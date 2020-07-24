@@ -148,14 +148,12 @@ class Quiz:
         try:
             starting_question = int(starting_question)
 
-            if starting_question <5:
+            if starting_question <= 4:
                 has_error = "yes"
-                error_feedback = "You need to enter a number"
+                error_feedback = "You need a minimum of 5 questions"
             elif starting_question > 20:
                 has_error = "yes"
                 error_feedback = "unfortunately that's to high"
-            elif starting_question >=5:
-                error_feedback = "You need a minimum of 5 questions "
 
         except ValueError:
             has_error = "yes"
@@ -167,11 +165,9 @@ class Quiz:
             if low_amount < -10000:
                 has_error = "yes"
                 error_feedback = "this number is to low"
-            elif low_amount > 9999999999:
+            elif low_amount > 999999999:
                 has_error = "yes"
                 error_feedback = "unfortunately thats to high"
-            elif low_amount >= 1:
-                error_feedback = "sorry you need a number a bit bigger"
 
         except ValueError:
             has_error = "yes"
@@ -180,40 +176,45 @@ class Quiz:
         try:
             high_amount = int(high_amount)
 
-            if high_amount < -10000:
+            if high_amount <= low_amount:
                 has_error = "yes"
-                error_feedback = "this number is to low"
+                error_feedback = "Your high number, must be higher than the low number"
             elif high_amount > 9999999999:
                 has_error = "yes"
                 error_feedback = "unfortunately thats to high"
-            elif high_amount >= 1:
-                self.addition_btn.config(state=NORMAL)
-                self.subtraction_btn.config(state=NORMAL)
-                self.multiplication_btn.config(state=NORMAL)
-                error_feedback = "sorry you need a number a bit bigger"
 
         except ValueError:
             has_error = "yes"
-            error_feedback = "Please fill the boxes with whole numbers"
+            error_feedback = ""
 
         if has_error == "yes":
             self.cho_num_entry.config(bg=error_back)
             self.amount_error_label.config(text=error_feedback)
             self.high_num_entry.config(bg=error_back)
-            # self.high_num_entry.config(text=error_feedback)
             self.low_num_entry.config(bg=error_back)
-            # self.low_num_entry.config(text=error_feedback)
 
         else:
             self.starting_question.set(starting_question)
             self.low_amount.set(low_amount)
             self.high_amount.set(high_amount)
+            self.addition_btn.config(state=NORMAL)
+            self.subtraction_btn.config(state=NORMAL)
+            self.multiplication_btn.config(state=NORMAL)
+            self.high_num_entry.config(state=DISABLED)
+            self.low_num_entry.config(state=DISABLED)
+            self.cho_num_entry.config(state=DISABLED)
+
 
     def to_game(self, op):
         starting_question = self.cho_num_entry.get()
         low_amount = self.low_num_entry.get()
         high_amount = self.high_num_entry.get()
         print(starting_question, low_amount, high_amount)
+
+        # disable addition button etc
+        self.addition_btn.config(state=DISABLED)
+        self.subtraction_btn.config(state=DISABLED)
+        self.multiplication_btn.config(state=DISABLED)
 
         Game(self, op,starting_question, low_amount, high_amount)
 
@@ -303,7 +304,7 @@ class Game:
     # Dismiss button (row 4)
         self.dismiss_btn = Button(self.dismiss_export_frame, text="Dismiss", width=10, bg="red",
                                 font="arial 10 bold",
-                                command=partial(self.close_addition, partner))
+                                command=partial(self.close_game, partner))
         self.dismiss_btn.grid(row=1)
 
     def check_ans(self, low_amount, high_amount, op, starting_question, questions_played, how_many_right, history_questions):
@@ -329,14 +330,15 @@ class Game:
             if answer != correct:
                 has_error = "yes"
                 self.feedback_label = Label(self.ask_questions_frame, text=" Opp's wrong answer ",
-                                         font="arial 10 bold",fg="black",bg="#8FF7A7", pady=8,)
+                                         font="arial 10 bold",fg="black",bg="#8FF7A7", width=20)
                 self.feedback_label.grid(row=3)
             elif answer == correct:
                 has_error = "no"
                 self.feedback_label = Label(self.ask_questions_frame, text=" That's the right answer",
-                                         font="arial 10 bold", fg="black", bg="#8FF7A7", pady=7, )
+                                         font="arial 10 bold", fg="black", bg="#8FF7A7", width=20)
                 self.feedback_label.grid(row=3)
                 how_many_right +=1
+                self.checking_ans_btn.delete(0, 'end')
 
         except ValueError:
             has_error = "yes"
@@ -350,13 +352,14 @@ class Game:
                                      bg="#95E06C", width=8,
                                      command=lambda: self.export(low_amount, high_amount, questions_played, how_many_right, history_questions))
             self.export_btn.grid(row=1, column=1)
-            self.next_btn.config(state=DISABLED)
+
         else:
             self.check_ans_btn.config(text="")
             self.next_btn = Button(self.ask_questions_frame, text="Next", font="arial 10 bold", fg="black",
                                         bg="#95E06C", pady=7,
                                         command=lambda: self.next(low_amount, high_amount, op, starting_question,questions_played, how_many_right, history_questions))
             self.next_btn.grid(row=2, column=1)
+            self.checking_ans_btn.config(state=NORMAL)
 
         self.played_label = Label(self.ask_questions_frame, font="arial 10 bold", fg="black",
                                   bg="#8FF7A7", pady=7,
@@ -400,13 +403,16 @@ class Game:
                                                                    starting_question, questions_played, how_many_right, history_questions))
         self.check_ans_btn.grid(row=2, column=1)
 
-    def close_addition(self, partner):
+    def close_game(self, partner):
         # Put help button back to normal
-        partner.addition_btn.config(state=NORMAL)
-        partner.subtraction_btn.config(state=NORMAL)
-        partner.multiplication_btn.config(state=NORMAL)
+        partner.addition_btn.config(state=DISABLED)
+        partner.subtraction_btn.config(state=DISABLED)
+        partner.multiplication_btn.config(state=DISABLED)
         partner.help_button.config(state=NORMAL)
         self.addition_box.destroy()
+        partner.high_num_entry.config(state=NORMAL)
+        partner.low_num_entry.config(state=NORMAL)
+        partner.cho_num_entry.config(state=NORMAL)
 
     def export(self, low_amount, high_amount, questions_played, how_many_right, history_questions):
         Export(self, low_amount, high_amount, questions_played, how_many_right, history_questions)
@@ -456,9 +462,9 @@ class Help:
 
     def close_help(self, partner):
         # Put help button back to normal
-        partner.addition_btn.config(state=NORMAL)
-        partner.subtraction_btn.config(state=NORMAL)
-        partner.multiplication_btn.config(state=NORMAL)
+        partner.addition_btn.config(state=DISABLED)
+        partner.subtraction_btn.config(state=DISABLED)
+        partner.multiplication_btn.config(state=DISABLED)
         partner.help_button.config(state=NORMAL)
         self.help_box.destroy()
 
@@ -533,11 +539,11 @@ class Export:
         # error massage labels (initially blank, row 4 )
         self.save_error_label = Label(self.export_frame, text=" ", fg="black",
                                       bg=background_color)
-        self.save_error_label.grid(row=4)
+        self.save_error_label.grid(row=5)
 
         # Save / Cancel Frame (row 4)
         self.save_cancel_frame = Frame(self.export_frame)
-        self.save_cancel_frame.grid(row=5, pady=10)
+        self.save_cancel_frame.grid(row=6, pady=10)
 
         # Save and Cancel buttons 9row 0 of save_cancel_frame)
         self.save_button = Button(self.save_cancel_frame, text="Save",
