@@ -311,6 +311,7 @@ class Game:
     def check_ans(self, low_amount, high_amount, op, starting_question,
                   questions_played, how_many_right, history_questions):
         answer = self.checking_ans_btn.get()
+        self.checking_ans_btn.config(state=DISABLED)
 
         # Set error background colour (and assum that there are no)
         # error at the start
@@ -331,15 +332,14 @@ class Game:
 
             if answer != correct:
                 has_error = "yes"
-                self.feedback_label = Label(self.ask_questions_frame, text=" Opp's wrong answer ",
+                self.feedback_label = Label(self.ask_questions_frame, text=" Oop's wrong answer ",
                                          font="arial 10 bold",fg="black",bg="#8FF7A7", width=20)
-                self.checking_ans_btn.config(state=DISABLED)
+                self.feedback_label.grid(row=3)
             elif answer == correct:
                 has_error = "no"
                 self.feedback_label = Label(self.ask_questions_frame, text=" That's the right answer",
                                          font="arial 10 bold", fg="black", bg="#8FF7A7", width=20)
                 self.feedback_label.grid(row=3)
-                self.checking_ans_btn.config(state=DISABLED)
 
         except ValueError:
             has_error = "yes"
