@@ -295,7 +295,8 @@ class Game:
 
         self.check_ans_btn = Button(self.ask_questions_frame, text="Check Answer", font="arial 10 bold", fg="black",
                                     bg="#95E06C", pady=7,
-                                    command=lambda: self.check_ans(low_amount, high_amount, op, starting_question, questions_played, how_many_right, self.history_questions))
+                                    command=lambda: self.check_ans(low_amount, high_amount, op, starting_question,
+                                                                   questions_played, how_many_right, self.history_questions))
         self.check_ans_btn.grid(row=2, column=1)
 
         self.dismiss_export_frame = Frame(self.addition_frame, bg=background_color)
@@ -307,7 +308,8 @@ class Game:
                                 command=partial(self.close_game, partner))
         self.dismiss_btn.grid(row=1)
 
-    def check_ans(self, low_amount, high_amount, op, starting_question, questions_played, how_many_right, history_questions):
+    def check_ans(self, low_amount, high_amount, op, starting_question,
+                  questions_played, how_many_right, history_questions):
         answer = self.checking_ans_btn.get()
 
         # Set error background colour (and assum that there are no)
@@ -331,14 +333,13 @@ class Game:
                 has_error = "yes"
                 self.feedback_label = Label(self.ask_questions_frame, text=" Opp's wrong answer ",
                                          font="arial 10 bold",fg="black",bg="#8FF7A7", width=20)
-                self.feedback_label.grid(row=3)
+                self.checking_ans_btn.config(state=DISABLED)
             elif answer == correct:
                 has_error = "no"
                 self.feedback_label = Label(self.ask_questions_frame, text=" That's the right answer",
                                          font="arial 10 bold", fg="black", bg="#8FF7A7", width=20)
                 self.feedback_label.grid(row=3)
-                how_many_right +=1
-                self.checking_ans_btn.delete(0, 'end')
+                self.checking_ans_btn.config(state=DISABLED)
 
         except ValueError:
             has_error = "yes"
@@ -352,6 +353,7 @@ class Game:
                                      bg="#95E06C", width=8,
                                      command=lambda: self.export(low_amount, high_amount, questions_played, how_many_right, history_questions))
             self.export_btn.grid(row=1, column=1)
+            self.checking_ans_btn.config(state=DISABLED)
 
         else:
             self.check_ans_btn.config(text="")
@@ -359,7 +361,6 @@ class Game:
                                         bg="#95E06C", pady=7,
                                         command=lambda: self.next(low_amount, high_amount, op, starting_question,questions_played, how_many_right, history_questions))
             self.next_btn.grid(row=2, column=1)
-            self.checking_ans_btn.config(state=NORMAL)
 
         self.played_label = Label(self.ask_questions_frame, font="arial 10 bold", fg="black",
                                   bg="#8FF7A7", pady=7,
@@ -368,6 +369,10 @@ class Game:
 
     def next(self,low_amount, high_amount, op, starting_question, questions_played, how_many_right, history_questions):
         starting_question = int(starting_question)
+
+        self.checking_ans_btn.config(state=NORMAL)
+        how_many_right += 1
+        self.checking_ans_btn.delete(0, 'end')
 
         if op == 1:
             hi_lo_num = random.randrange(low_amount, high_amount)
@@ -430,6 +435,7 @@ class Help:
 
         # Set up child window (ie: help box)
         self.help_box = Toplevel()
+        self.help_box.protocol('WM_DELETE_WINDOW',partial(self.close_help,partner))
 
         # Set up GUI Frame
         self.help_frame = Frame(self.help_box, width=300, bg=background_color)
